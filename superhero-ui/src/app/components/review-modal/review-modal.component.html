@@ -1,0 +1,22 @@
+<div mat-dialog-title class="dialog-title">
+  <button mat-icon-button aria-label="close dialog" mat-dialog-close class="x-button">
+    <mat-icon>close</mat-icon>
+  </button>
+</div>
+<div mat-dialog-content [formGroup]="formData" class="review-form">
+    <app-star-rating (onRating)="onSelectRating($event)" cdkFocusInitial></app-star-rating>
+    <mat-form-field class="title-input">
+      <mat-label>Title</mat-label>
+      <input matInput placeholder="Title" formControlName="title" type="text" maxlength="50"/>
+      <mat-hint align="end">{{titleCharacterCount()}} / 50</mat-hint>
+    </mat-form-field>
+    <mat-form-field class="comment-input">
+      <mat-label>Description</mat-label>
+      <mat-hint align="end">{{commentCharacterCount()}} / 500</mat-hint>
+      <textarea matInput formControlName="comment" placeholder="Description" maxlength="500"></textarea>
+    </mat-form-field>
+</div>
+<div mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Cancel</button>
+  <button mat-raised-button (click)="submitReview()" type="submit" color="primary">Submit</button>
+</div>

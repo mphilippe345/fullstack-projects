@@ -1,0 +1,20 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-superheroui-dev-60359-authRole",
+      "UnauthRoleArn": "arn:aws:iam::332300086111:role/amplify-superheroui-dev-60359-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::332300086111:role/amplify-superheroui-dev-60359-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-superheroui-dev-60359-deployment",
+      "UnauthRoleName": "amplify-superheroui-dev-60359-unauthRole",
+      "StackName": "amplify-superheroui-dev-60359",
+      "StackId": "arn:aws:cloudformation:us-east-1:332300086111:stack/amplify-superheroui-dev-60359/60483980-4653-11ee-a3a2-0aad9e7546bd",
+      "AmplifyAppId": "d36rijrmlkeaeb"
+    },
+    "categories": {
+      "auth": {
+        "superherouic0114db9": {}
+      }
+    }
+  }
+}

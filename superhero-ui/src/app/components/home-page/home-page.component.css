@@ -1,0 +1,8 @@
+.home-page-container {
+  margin-bottom: 10vh;
+}
+
+mat-tab-group {
+  width: 99%;
+  margin: auto;
+}

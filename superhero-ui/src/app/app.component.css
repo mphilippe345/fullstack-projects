@@ -1,0 +1,45 @@
+.mat-custom-blue {
+    background-color: #0442BF;
+    color: #fff;
+}
+.container{
+    margin-top: 60px;
+    margin-left: 8%;
+    margin-right: 8%;
+    padding-bottom: 130px;
+}
+
+.page-container {
+  display: flex;
+  justify-content: center;
+}
+
+.page-backdrop {
+  top: 0;
+  position: fixed;
+  width: 86.5%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  z-index: -1;
+  opacity: 85%;
+  background-color: rgb(255, 255, 255);
+  margin-left: 7%;
+  margin-right: 7%;
+  box-shadow: 0 1px 5px 1px rgb(132, 131, 131),
+  0 -1px 0 0 rgb(111, 110, 110),
+  0 -1px .5px 0 rgb(159, 159, 159);
+}
+
+.bg {
+  background-size: cover;
+  top: 0;
+  left: 0;
+  position: fixed !important;
+  width: 100%;
+  height: 100%;
+  background-position: center;
+  z-index: -10;
+  opacity: 80%;
+}

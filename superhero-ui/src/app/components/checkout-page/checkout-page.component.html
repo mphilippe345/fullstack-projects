@@ -1,0 +1,21 @@
+<div class="checkoutContainer" aria-label="checkout page">
+    <ng-container
+            *appSpinner="loading; margin: '250px auto'"
+            [ngTemplateOutlet]="
+      cartService.getItemCount() > 0 ? hasProducts : noProducts
+    "
+    ></ng-container>
+    <ng-template #hasProducts>
+        <app-checkout-stepper></app-checkout-stepper>
+        <app-checkout-page-cart></app-checkout-page-cart>
+    </ng-template>
+    <ng-template #noProducts>
+        <mat-card class="graphicContainer">
+            <div class="empty-cart-heading">
+                <img class="hero" [src]="superhero" [alt]="superhero">
+                <h2>Your Cart is Empty!</h2>
+                <a routerLink="/products">Click here to go to products page.</a>
+            </div>
+        </mat-card>
+    </ng-template>
+</div>

@@ -1,0 +1,41 @@
+<div class="flip-card">
+  <div class="flip-card-inner">
+    <div #front class="front-card">
+      <img
+        class="iconFront"
+        [src]="icon"
+        alt="logo"
+        height="30px"
+        width="50px"
+      />
+      <div class="parts">
+        <ng-container *ngFor="let part of cardNumber">
+          <span class="cardNumber">{{ part }}</span>
+        </ng-container>
+      </div>
+      <div class="nameAndDate">
+        <span class="cardName">
+          <small class="title">Cardholder</small>
+          {{ creditCard.cardName }}
+        </span>
+        <span class="expDate">
+          <small class="title">Exp. Date</small>
+          {{ creditCard.expirationDate }}
+        </span>
+      </div>
+    </div>
+    <div #back class="back-card">
+      <div class="bar"></div>
+      <div class="sigBar">
+        <span class="cvv">{{ creditCard.securityCode }}</span>
+      </div>
+      <img
+        class="iconBack"
+        [src]="icon"
+        alt="logo"
+        height="30px"
+        width="50px"
+      />
+    </div>
+  </div>
+</div>

@@ -1,0 +1,106 @@
+.new-releases-header h1{
+  font-size: 28px;
+
+  background-color:#FFD105;
+
+  font-family: "Quicksand";
+
+  padding: 12px 0 15px 19px;
+  border-radius: 8px;
+  color: #333333;
+  font-weight: bold;
+  margin: -2vh -.3% -.1% .3%;
+}
+.seeAll-btn{
+  margin-right: 1.5%;
+  margin-top: -3rem;
+  padding-left: 40px;
+  padding-right: 40px;
+  font-family: "Quicksand";
+  font-size: 17px;
+  font-weight: 700;
+  float: right;
+}
+.product{
+  padding: 20px 0;
+  margin-left: auto;
+  margin-right: auto;
+  width: 95%;
+}
+.slider-wrap{
+  position: relative;
+  height: 300px;
+  overflow: hidden;
+}
+.slider-main{
+  position: absolute;
+  width: 200%;
+  width: calc(250px *18);
+  animation:scroll 40s linear infinite;
+}
+.slider-main:hover{
+  animation-play-state: paused;
+}
+.item{
+  display: inline-block;
+  width: 400px;
+  height: 200px;
+  position: relative;
+  margin: 0 12px;
+  perspective: 100px;
+  cursor: pointer;
+  transition: transform 0.7s;
+  vertical-align: top;
+}
+.item:hover{
+  transform: scale(1.05);
+}
+
+@keyframes scroll{
+  0%{
+    transform: translateX(0);
+  }
+  100%{
+    transform: translateX(calc(-250px * 10));
+  }
+}
+.prev{
+  position: absolute;
+  left: 20px;
+  top: 45%;
+  transform: translate(-50%, -50%);
+  background-color: rgb(138, 138, 138);
+  transition: 0.2s ease-in-out;
+  padding-right: 1px;
+}
+.prev:hover{
+  background: rgb(202, 202, 201);
+  color: rgb(122, 102, 102);
+}
+.next{
+  position: absolute;
+  right: -20px;
+  top: 45%;
+  transform: translate(-50%, -50%);
+  background-color: rgb(138, 137, 137);
+  transition: 0.2s ease-in-out;
+}
+.next:hover{
+  background: rgb(202, 202, 201);
+  color: rgb(122, 102, 102);
+}
+
+.new-releases-header {
+  width: 96%;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 2rem;
+}
+
+.no-product-msg {
+  text-align: center;
+  transform: translate(0%, 900%);
+  font-size: large;
+  font-family: Quicksand;
+  font-weight: bold;
+}

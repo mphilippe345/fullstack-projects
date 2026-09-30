@@ -1,0 +1,108 @@
+.add {
+  margin-top: -0.2%;
+}
+
+.body {
+  display: flex;
+  margin-right: 0;
+  margin-top: 7%;
+  margin-left: 0;
+  width: 82vw;
+}
+
+.buttons {
+  position: sticky;
+  float: left;
+  margin-right: 0.5%;
+  margin-left: -1%;
+  color: #e53939;
+}
+
+/* .comment {
+  font-size: large;
+  margin-top: -32px;
+  margin-left: 55%;
+  float: right;
+  position: absolute;
+} */
+
+.description {
+  margin-left: 300px;
+  margin-top: -5px;
+  margin-right: 5.75rem;
+  max-width: 875px;
+}
+
+.condition-container {
+  background-color: white;
+  height: 54px;
+}
+
+
+.details {
+  margin-top: -10px;
+}
+
+.favorite {
+  margin-right: 5px;
+}
+
+.image {
+  max-height: 400px;
+  min-height: 410px;
+  display: block;
+  float: left;
+}
+
+.rating {
+  float: left;
+  margin-top: 425px;
+  margin-left: -200px;
+}
+
+.review-container {
+  max-width: 90vw;
+  margin-left: 7%;
+  margin-right: auto;
+}
+
+.review-title {
+  margin-top: 115px;
+  margin-left: 10%;
+  position: absolute;
+}
+
+.sort-container {
+  background-color: white;
+  margin-top: 85px;
+  margin-left: 79%;
+  height: 54px;
+}
+
+.sold {
+  cursor: not-allowed;
+  font-size: 18px;
+  font-weight: 500;
+  color: #4e4d4d;
+  margin-bottom: 1%;
+  margin-top: 2.3%;
+  width: fit-content;
+}
+
+h1 {
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+h3 {
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+p {
+  font-size: medium;
+}
+
+i {
+  padding-right: 7px;
+}

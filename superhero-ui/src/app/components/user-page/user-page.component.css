@@ -1,0 +1,40 @@
+.profile-container {
+  width: 80%;
+  min-height: 54vh;
+  min-width: 80vw;
+  margin: 10px auto 3vh;
+  justify-content: center;
+}
+
+.navigation {
+  margin-top: 5%;
+  margin-bottom: 5vh;
+  display: flex;
+  justify-self: flex-start;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.tab-group {
+  background-color: white;
+}
+
+.user-content {
+  padding: 50px;
+}
+
+.no-orders {
+  padding: 10px;
+  text-align: center;
+  font-size: large;
+  margin-top: 30px;
+}
+
+.admin-console {
+  background-color: rgb(122, 205, 238);
+}
+
+.spinner {
+  margin: 30px auto;
+}

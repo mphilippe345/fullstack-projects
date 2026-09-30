@@ -1,0 +1,25 @@
+<div class="content-main">
+  <div class="content-box">
+    <div class="productContainer">
+      <div class="products">
+        <div class="productCols" *ngFor="let product of products">
+          <div class="productRow">
+            <img
+              src="{{ product?.imageUrl }}"
+              alt="Cover of {{ product?.title }}"
+              [height]="100"
+            />
+          </div>
+          <div class="productRow">
+            <h3>{{ product?.title }}</h3>
+            <p>Price: ${{ product?.price!.toFixed(2) }}</p>
+            <small>Condition: <i>{{ product?.condition!.replace('-', ' ') | titlecase }}</i></small>
+          </div>
+        </div>
+      </div>
+      <div class="orderTotal">
+        <span><b>Total: </b>{{ orderTotal | currency }}</span>
+      </div>
+    </div>
+  </div>
+</div>

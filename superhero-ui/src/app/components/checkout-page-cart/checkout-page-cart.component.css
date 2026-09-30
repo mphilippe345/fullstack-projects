@@ -1,0 +1,267 @@
+.container {
+  margin-left: 1rem;
+  position: relative;
+  box-shadow: 2px 2px 8px 2px #d6d6d6;
+  display: flex;
+  flex-direction: column;
+}
+
+.container mat-card {
+  width: 22.2rem;
+}
+
+@media (max-width: 1085px) {
+  .container {
+    width: 22rem;
+    margin: 25px auto 20px;
+  }
+}
+
+.condition-chip {
+  border-radius: 15px;
+  color: whitesmoke;
+  padding: 5px 10px;
+  width: fit-content;
+  height: fit-content;
+  margin-left: auto;
+  margin-right: 5px;
+  font-weight: lighter;
+}
+
+.cart-card {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.cost-card {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.cost-content {
+  overflow: auto;
+  height: 14rem;
+  width: 100%;
+}
+
+.delete-icon {
+  transform: scale(0.80);
+}
+
+.delete-button {
+  background: white;
+  border-radius: 3px;
+  border-color: #D5D9D9;
+  border-style: solid;
+  border-width: 1px;
+  cursor: pointer;
+  display: inline-block;
+  padding: 0;
+  text-align: center;
+  text-decoration: none !important;
+  vertical-align: middle;
+  height: 27px;
+}
+
+.delete-button:active {
+  background-color: darkgray;
+}
+
+.emptyCartContainer {
+  margin-left: 0px;
+}
+
+.total-cost-container {
+  display: grid;
+  margin-bottom: 15px;
+}
+
+.inline-label {
+  display: inline;
+  font-weight: bold;
+}
+
+.inline-price {
+  float: right;
+  margin-right: -65%;
+  margin-bottom: 7px;
+  font-weight: 400;
+}
+
+.minus {
+  border-bottom-left-radius: 5px;
+  border-top-left-radius: 5px;
+}
+
+
+.plus-minus-input::-webkit-inner-spin-button,
+.plus-minus-input::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.plus-minus-input {
+  padding: 0.25em 0.8em;
+  border-color: transparent;
+  background-color: #0442BF;
+  color: white;
+  text-align: center;
+  cursor: pointer;
+}
+
+.plus-minus-input:active {
+  background-color: darkgray;
+}
+
+.plus {
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border-top-left-radius: 0px;
+}
+
+.price {
+  margin-top: 10px;
+}
+
+.price-inline {
+  font-weight: bold;
+}
+
+.unit-price {
+  margin-bottom: 5px;
+}
+
+.product-content {
+  overflow: auto;
+  height: 21.2rem;
+}
+
+.product-display {
+  display: flex;
+  border-bottom: 1px solid lightgray;
+  height: 10rem;
+  width: 100%;
+}
+
+.product-display img {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.product-display-invisible {
+  display: none;
+}
+
+.product-info {
+  margin: auto auto auto 5%;
+  width: 100%;
+}
+
+.quantity-input {
+  width: 30px;
+  height: 19.75px;
+  text-align: center;
+}
+
+.quantity-group {
+  display: flex;
+  flex-direction: row;
+  gap: 8%;
+  margin-top: 10px;
+}
+
+.title {
+  width: 150px;
+}
+
+.title-and-price {
+  font-weight: bolder;
+  display: flex;
+}
+
+.total-info {
+  position: absolute;
+  bottom: 0;
+}
+
+a {
+  color: black;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.total {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  gap: 5px;
+}
+
+.original-price {
+  text-decoration: line-through;
+  color: red;
+  font-weight: 403;
+}
+
+.promo-price {
+  color: green;
+  font-weight: 400;
+}
+
+.mat-error {
+  position: absolute;
+  bottom: 67%;
+  /* font-size: 12px;  */
+}
+
+.promo-code {
+  margin-bottom: 13px;
+}
+
+.error {
+  color: red;
+}
+
+.applied-promo {
+  color: green;
+}
+
+.promoApplyBttn {
+  float: right;
+  padding-top: 5px;
+  margin-left: 20px;
+  font-weight: 400;
+  width: 5px;
+}
+
+.promo-delete-bttn {
+  background: white;
+  border-radius: 3px;
+  border-color: #D5D9D9;
+  border-style: solid;
+  border-width: 1px;
+  cursor: pointer;
+  display: inline-block;
+  margin-left: 20px;
+  padding: 0;
+  margin-top: 10px;
+  text-align: center;
+  text-decoration: none !important;
+  vertical-align: middle;
+  height: 27px;
+}
+
+.promo-delete-bttn:active {
+  background-color: darkgray;
+}
+
+.original-product-price {
+  text-decoration: line-through;
+  color: red;
+  margin-right: 3px;
+}
+
+.discounted-product-price {
+  color: green;
+  margin-left: 2px;
+}

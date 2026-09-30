@@ -1,0 +1,64 @@
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use '@angular/material' as mat;
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat.core();
+@import '@angular/material/theming';
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+//$superhero-ui-primary: mat.define-palette(mat.$gray-palette, 50);
+//$superhero-ui-accent: mat.define-palette(mat.$gray-palette);
+$superhero-ui-primary: mat.define-palette(mat.$indigo-palette);
+$superhero-ui-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+$superhero-ui-third: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$superhero-ui-warn: mat.define-palette(mat.$red-palette);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$superhero-ui-theme: mat.define-light-theme((
+        color: (
+                primary: $superhero-ui-primary,
+                accent: $superhero-ui-accent,
+                third: $superhero-ui-third,
+                warn: $superhero-ui-warn
+        )
+));
+
+$custom-primary: mat.define-palette(mat.$gray-palette, 50);
+$custom-accent: mat.define-palette(mat.$gray-palette);
+
+$custom-theme: mat.define-light-theme((
+        color: (
+                primary: $custom-primary,
+                accent: $custom-accent
+        )
+));
+
+$spinner-blue: mat.define-palette(mat.$blue-palette, 900);
+$spinner-yellow: mat.define-palette(mat.$yellow-palette);
+$spinner-red: mat.define-palette(mat.$red-palette);
+$spinner-basic: mat.define-palette(mat.$gray-palette, 900);
+
+$spinner-theme: mat.define-light-theme((
+        color: (
+                primary: $spinner-blue,
+                accent: $spinner-basic,
+                warn: $spinner-red,
+        )
+));
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include mat.all-component-themes($superhero-ui-theme);
+@include mat.tabs-color($custom-theme);
+@include mat.autocomplete-color($custom-theme);
+@include mat.progress-spinner-color($spinner-theme);

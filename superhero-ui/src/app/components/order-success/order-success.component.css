@@ -1,0 +1,38 @@
+.infoContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-align: center;
+    margin-top: 20%;
+    box-shadow: 2px 2px 8px 2px #d6d6d6;
+}
+
+.card {
+    padding: 30px;
+}
+
+.header {
+    font-size: 20px;
+    align-items: center;
+}
+
+.check {
+    width: 25%;
+    height: 25%;
+    padding: 15px;
+}
+
+.navBtn {
+    background-color: rgb(226, 152, 33);
+    color: white;
+    padding: 15px;
+    border-radius: 15px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 2px 1px 7px #6b6a6a;
+    margin-bottom: 10px;
+}
+
+.navBtn:hover {
+    background-color: rgb(147, 99, 22);
+}

@@ -1,0 +1,45 @@
+<nav class="fixed-header">
+  <a>
+    <img
+      class="logo"
+      src="assets\comicLogo.png"
+      alt="Comics-Corner-Logo"
+      routerLink="/home"
+    />
+  </a>
+  <a routerLink="/home" class="hover-underline-animation nav-button home">Home</a>
+  <a routerLink="/products" class="hover-underline-animation nav-button">Comics</a>
+  <div class="img-buttons">
+    <a routerLink="/user" class="user-profile nav-img">
+      <img
+        class="user"
+        src="assets\usericon.png"
+        alt="User Profile"
+        aria-label="view user Profile"
+        matTooltip="User Profile"
+        matTooltipPosition="below"
+        matTooltipClass="custom-tooltip"
+      /></a>
+    <a id="cartIcon" routerLink="/checkout" class="checkout-page nav-img" [cdkContextMenuTriggerFor]="rightClick">
+      <mat-icon matBadge="{{ cartService.getItemCount() == 0
+        ? ''
+        : cartService.getItemCount() < 100
+        ? cartService.getItemCount()
+        : '99+' }}" matBadgePosition="below" class="badge" matBadgeColor="warn"></mat-icon>
+      <img
+        class="cart"
+        src="assets\cart.png"
+        alt="Shoping Cart"
+        aria-label="View Shopping Cart"
+        matTooltip="Checkout Page"
+        matTooltipPosition="below"
+        matTooltipClass="custom-tooltip"
+      /></a>
+  </div>
+</nav>
+
+<ng-template #rightClick>
+  <div class="rightClickMenu" cdkMenu>
+    <button class="navigateBtn" cdkMenuItem (click)="navigate()">To Order Confirmation</button>
+  </div>
+</ng-template>

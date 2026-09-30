@@ -1,0 +1,42 @@
+<div class="example-card">
+  <mat-card routerLink="{{ '/products/' + product.id }}" role="region" (click)="onCardClick()">
+    <div *ngIf="product.newrelease" class="card-img-overlay">New Release</div>
+    <mat-card-title-group>
+      <div [ngClass]="product.stockStatus ? '' : 'sold soldimg'">
+        <img
+          mat-card-lg-image
+          src="{{ product.imageUrl }}"
+          alt="Cover of {{ product.title }}."
+          class="image"
+          routerLink="{{ product.id }}"
+        />
+      </div>
+      <div class="best-seller-banner" *ngIf="product.bestSeller">
+        #{{ getProductIndex(product) }} Best Seller
+      </div>
+      <div class="info">
+        <mat-card-title routerLink="{{ product.id }}">{{product.title}}</mat-card-title>
+        <mat-card-subtitle>{{ product.author }}</mat-card-subtitle>
+        <mat-card-subtitle class="description" routerLink="{{ product.id }}">
+          {{product.description}}
+        </mat-card-subtitle>
+        <mat-card-subtitle routerLink="{{ product.id }}">Publisher: {{ product.publisher }}</mat-card-subtitle>
+        <mat-card-subtitle routerLink="{{ product.id }}">Price: {{ product.price | currency }}</mat-card-subtitle>
+        <div class="sold" *ngIf="!product.stockStatus">Out of Stock</div>
+        <button
+          [disabled]="true"
+          *ngIf="product.stockStatus"
+          matTooltip="Add to cart"
+          class="addtocart"
+          mat-icon-button
+          (click)="cartService.addToCartWithToast(product); $event.stopPropagation()"
+        >
+          <mat-icon>add_circle</mat-icon>
+        </button>
+        <button class="heart" mat-icon-button>
+          <mat-icon>favorite_border</mat-icon>
+        </button>
+      </div>
+    </mat-card-title-group>
+  </mat-card>
+</div>

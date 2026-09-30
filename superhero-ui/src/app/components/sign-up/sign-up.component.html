@@ -1,0 +1,41 @@
+<div class="container" *ngIf ="user">
+
+    <div class="auth-box">
+        <!-- sign up -->
+        <div *ngIf="!isComfirm">
+            <div class="header">
+                <h2>Register</h2>
+                <h4> Register Your Account using below information</h4>
+            </div>
+            <div class="form">
+                <input type="text" name="given_name" [(ngModel)] ="user.given_name" placeholder="First Name">
+                <input type="text" name="family_name" [(ngModel)] ="user.family_name" placeholder="Last Name">
+                <input type="email" name="email" [(ngModel)] ="user.email" placeholder="Email" autocomplete="off" >
+                <input [type]="user.showPassword ? 'text' : 'password'"  name="password" [(ngModel)] ="user.password" placeholder="Password">
+                <div>
+                    <input type="checkbox" [checked]="user.showPassword" (change)="user.showPassword=!user.showPassword">
+                    Show Password
+                </div>
+                <p> Already a member? <a href="/sign-in">Sign in</a></p>
+                <button (click)="signUpWithCognito()">Register</button>
+            </div>
+        </div>
+
+        <!-- comfirm sign up-->
+        <div *ngIf="isComfirm"> 
+            <div class="header">
+                <h2> Enter Code</h2>
+                <h4 style="color:green;">A verification code snet to {{user.email}} </h4>
+            </div>
+
+            <div class="form">
+                <input type="text" name="verificaionCode" placeholder="Enter verification code" [(ngModel)]="user.verficationCode">
+                <button (click)="confirmSignUp()" > Confirm</button>
+            </div>
+        </div>
+
+    </div>
+</div>    
+
+<!--Modal -->
+<app-message-modal *ngIf="showAlert" (modalClose)="showAlert=false" [message]="alertMessage"></app-message-modal>

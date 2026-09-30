@@ -1,0 +1,27 @@
+.dialog-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.review-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 15vh;
+}
+
+.comment-input textarea {
+  min-height: 157px;
+  max-height: 400px;
+  line-height: 22px;
+}
+
+.title-input {
+  margin-top: 20px;
+}
+
+.x-button {
+  margin-left: auto;
+}
+

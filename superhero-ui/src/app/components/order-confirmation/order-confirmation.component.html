@@ -1,0 +1,71 @@
+<div class="orderConfContainer">
+    <mat-card class="cardContainer" *appSpinner="loading; margin: '250px auto'">
+        <mat-card-header class="headerContainer">
+            <mat-card-title class="headerTitle">Order Confirmation</mat-card-title>
+        </mat-card-header>
+        <div class="flexContainer">
+            <mat-card-content class="divCol">
+                <mat-card-subtitle class="sectionTitle">Comics</mat-card-subtitle>
+                <app-ripped-receipt [products]="products" [orderTotal]="orderTotal"></app-ripped-receipt>
+            </mat-card-content>
+            <mat-card-content class="divCol">
+                <div class="billing">
+                    <mat-card-subtitle class="sectionTitle"> Billing Address</mat-card-subtitle>
+                    <div class="addressCols billing">
+            <span class="addressRow">
+              <b>Street Address: </b>{{ billingAddress.streetAddress1
+                }}
+                <ng-container *ngIf="billingAddress.streetAddress2 != ''"
+                >, {{ billingAddress.streetAddress2 }}</ng-container
+                >
+            </span>
+                        <span class="addressRow"><b>City: </b>{{ billingAddress.city }}</span>
+                        <span class="addressRow"><b>State: </b>{{ billingAddress.state }}</span>
+                        <span class="addressRow"
+                        ><b>Zip Code: </b>{{ billingAddress.zipCode }}</span
+                        >
+                    </div>
+                </div>
+
+                <div class="shipping">
+                    <mat-card-subtitle class="sectionTitle"> Shipping Address</mat-card-subtitle>
+                    <div class="addressCols">
+            <span class="addressRow">
+              <b>Street Address: </b>{{ shippingAddress.streetAddress1
+                }}
+                <ng-container *ngIf="shippingAddress.streetAddress2 != ''"
+                >, {{ shippingAddress.streetAddress2 }}</ng-container
+                >
+            </span>
+                        <span class="addressRow"><b>City: </b>{{ shippingAddress.city }}</span>
+                        <span class="addressRow"><b>State: </b>{{ shippingAddress.state }}</span>
+                        <span class="addressRow"
+                        ><b>Zip Code: </b>{{ shippingAddress.zipCode }}</span
+                        >
+                    </div>
+                </div>
+            </mat-card-content>
+            <mat-card-content class="divCol">
+                <div class="personalInfo">
+                    <mat-card-subtitle class="sectionTitle"> Personal Info</mat-card-subtitle>
+                    <div class="piCols">
+                        <span class="piRow"><b>First Name: </b>{{ personalInfo.firstName }}</span>
+                        <span class="piRow"><b>Last Name: </b>{{ personalInfo.lastName }}</span>
+                        <span class="piRow"><b>Phone Number: </b>{{ phoneNumber }}</span>
+                        <span class="piRow"><b>Email: </b>{{ personalInfo.email}}</span>
+                    </div>
+                </div>
+                <div class="creditCardInfo">
+                    <mat-card-subtitle class="sectionTitle"> Payment Info</mat-card-subtitle>
+                    <app-credit-card [creditCard]="creditCard"></app-credit-card>
+                </div>
+            </mat-card-content>
+        </div>
+        <div class="btnContainer">
+            <button class="cancelBtn" (click)="cancelOrder()" [disabled]="clicked">Cancel Order</button>
+            <button class="confirmBtn" (click)="confirmOrder()" [disabled]="clicked">
+                <div *appSpinner="processing; margin: '0 auto'; diameter: 16">Confirm Order</div>
+            </button>
+        </div>
+    </mat-card>
+</div>

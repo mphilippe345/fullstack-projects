@@ -1,0 +1,12 @@
+<div class="home-page-container">
+  <app-genres-slider></app-genres-slider>
+  <mat-tab-group mat-stretch-tabs="true" backgroundColor="primary" color="accent">
+    <mat-tab label="New Releases">
+      <app-product-carousel [products]="newReleases" [header]="'New Releases'"></app-product-carousel>
+    </mat-tab>
+    <mat-tab label="Best Sellers">
+      <app-product-carousel [products]="topProducts" [header]="'Best Sellers'" [headerColor]="'#f25050'"
+                            [fontColor]="'whitesmoke'"></app-product-carousel>
+    </mat-tab>
+  </mat-tab-group>
+</div>

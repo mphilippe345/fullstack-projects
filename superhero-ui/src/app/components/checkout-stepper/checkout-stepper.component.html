@@ -1,0 +1,697 @@
+<mat-stepper #stepper linear="true" class="stepperShadow">
+  <mat-step [completed]="personalInfoForm.valid">
+    <form [formGroup]="personalInfoForm">
+      <ng-template matStepLabel
+        >Personal Info
+        <mat-icon class="stepIcon">account_circle</mat-icon>
+      </ng-template>
+      <div class="divFlexCenter">
+        <div class="divFormStyling">
+          <mat-card class="form-container">
+            <mat-card-header class="divFlexColumn">
+              <mat-card-title class="formLabel">Personal Info</mat-card-title>
+            </mat-card-header>
+            <div>
+              <div class="divFlexRow">
+                <div>
+                  <mat-form-field>
+                    <mat-label>First Name</mat-label>
+                    <input
+                      matInput
+                      placeholder="First Name"
+                      id="firstName"
+                      type="text"
+                      formControlName="firstName"
+                    />
+                    <mat-error
+                      *ngIf="
+                        personalInfoForm.controls.firstName.invalid &&
+                        personalInfoForm.controls.firstName.touched
+                      "
+                    >
+                      Please provide a first name
+                    </mat-error>
+                  </mat-form-field>
+                </div>
+                <div>
+                  <mat-form-field>
+                    <mat-label>Last Name</mat-label>
+                    <input
+                      matInput
+                      placeholder="Last Name"
+                      id="lastName"
+                      type="text"
+                      formControlName="lastName"
+                    />
+                    <mat-error
+                      *ngIf="
+                        personalInfoForm.controls.lastName.invalid &&
+                        personalInfoForm.controls.lastName.touched
+                      "
+                    >
+                      Please provide a last name
+                    </mat-error>
+                  </mat-form-field>
+                </div>
+              </div>
+            </div>
+            <div class="divFlexColumn">
+              <div>
+                <div>
+                  <mat-form-field [style.width.px]="433">
+                    <mat-label>Email</mat-label>
+                    <input
+                      matInput
+                      placeholder="xxx@xxx.xxx"
+                      id="email"
+                      type="email"
+                      formControlName="email"
+                    />
+                    <mat-error
+                      *ngIf="
+                        personalInfoForm.controls.email.invalid &&
+                        personalInfoForm.controls.email.touched
+                      "
+                    >
+                      Please provide an email. Example: johndoe123@yahoo.com
+                    </mat-error>
+                  </mat-form-field>
+                </div>
+              </div>
+              <div class="divFlexRow">
+                <div>
+                  <mat-form-field [style.width.px]="433">
+                    <mat-label>Phone Number</mat-label>
+                    <input
+                      matInput
+                      placeholder="(555) 555-1234"
+                      id="phoneNumber"
+                      type="text"
+                      formControlName="phoneNumber"
+                      (input)="
+                        formatPhoneNumber(personalInfoForm.controls.phoneNumber)
+                      "
+                    />
+                    <mat-error
+                      *ngIf="
+                        personalInfoForm.controls.phoneNumber.invalid &&
+                        personalInfoForm.controls.phoneNumber.touched
+                      "
+                    >
+                      Please provide a phone number
+                    </mat-error>
+                  </mat-form-field>
+                </div>
+              </div>
+              <div>
+                <button
+                  class="stepperNextButton"
+                  mat-button
+                  (click)="nextStep(personalInfoForm, stepper)"
+                >
+                  Next
+                </button>
+              </div>
+            </div>
+          </mat-card>
+        </div>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step [completed]="billingForm.valid">
+    <form [formGroup]="billingForm">
+      <ng-template matStepLabel
+        >Billing Address
+        <mat-icon class="stepIcon">mail</mat-icon>
+      </ng-template>
+
+      <div class="divFlexCenter">
+        <div class="divFormStyling">
+          <mat-card class="form-container">
+            <mat-card-header class="divFlexColumn">
+              <mat-card-title class="formLabel">Billing Address</mat-card-title>
+            </mat-card-header>
+            <div>
+              <div class="divFlexRow">
+                <div>
+                  <mat-form-field [style.width.px]="250">
+                    <mat-label>Address:</mat-label>
+                    <input
+                      matInput
+                      placeholder="Address:"
+                      id="billingAddress"
+                      type="text"
+                      formControlName="billingAddress"
+                    />
+                    <mat-error
+                      *ngIf="
+                        billingForm.controls.billingAddress.invalid &&
+                        billingForm.controls.billingAddress.touched
+                      "
+                    >
+                      Please provide a billing address
+                    </mat-error>
+                  </mat-form-field>
+                </div>
+                <div>
+                  <mat-form-field [style.width.px]="153">
+                    <mat-label>Address 2:</mat-label>
+                    <input
+                      matInput
+                      placeholder="Apt, suite, etc"
+                      id="billingAddress2"
+                      type="text"
+                      formControlName="billingAddress2"
+                    />
+                    <mat-error
+                      *ngIf="
+                        billingForm.controls.billingAddress2.invalid &&
+                        billingForm.controls.billingAddress2.touched
+                      "
+                    >
+                      Provide secondary address info
+                    </mat-error>
+                  </mat-form-field>
+                </div>
+              </div>
+            </div>
+            <div class="divFlexColumn">
+              <div>
+                <mat-form-field [style.width.px]="433">
+                  <mat-label>City</mat-label>
+                  <input
+                    matInput
+                    placeholder="City"
+                    id="billingCity"
+                    type="text"
+                    formControlName="billingCity"
+                  />
+                  <mat-error
+                    *ngIf="
+                      billingForm.controls.billingCity.invalid &&
+                      billingForm.controls.billingCity.touched
+                    "
+                  >
+                    Please provide a billing city
+                  </mat-error>
+                </mat-form-field>
+              </div>
+              <div class="divFlexRow">
+                <div>
+                  <mat-form-field>
+                    <mat-label>State</mat-label>
+                    <mat-select
+                      id="billingState"
+                      formControlName="billingState"
+                      aria-label="state select dropdown"
+                    >
+                      <mat-option>None</mat-option>
+                      <mat-option
+                        *ngFor="let stateCode of stateCodes"
+                        [value]="stateCode"
+                        >{{ stateCode }}</mat-option
+                      >
+                    </mat-select>
+                    <mat-error
+                      *ngIf="
+                        billingForm.controls.billingState.hasError(
+                          'required'
+                        ) && billingForm.controls.billingState.touched
+                      "
+                    >
+                      State is required
+                    </mat-error>
+                  </mat-form-field>
+                </div>
+                <div>
+                  <mat-form-field>
+                    <mat-label>Zip Code</mat-label>
+                    <input
+                      matInput
+                      placeholder="Ex. 12345 or 12345-6789"
+                      id="billingZip"
+                      type="text"
+                      formControlName="billingZip"
+                      (input)="formatZipCode(billingForm.controls.billingZip)"
+                    />
+                    <mat-error
+                      *ngIf="
+                        billingForm.controls.billingZip.invalid &&
+                        billingForm.controls.billingZip.touched
+                      "
+                    >
+                      Please provide a billing zip code. Example 12345 or
+                      12345-6789
+                    </mat-error>
+                  </mat-form-field>
+                </div>
+              </div>
+              <div>
+                <button class="stepperBackButton" mat-button matStepperPrevious>
+                  Back
+                </button>
+                <button
+                  class="stepperNextButton"
+                  mat-button
+                  (click)="nextStep(billingForm, stepper)"
+                >
+                  Next
+                </button>
+              </div>
+            </div>
+          </mat-card>
+        </div>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step [completed]="shippingForm.valid || sameAsBilling">
+    <form [formGroup]="shippingForm">
+      <ng-template matStepLabel
+        >Shipping Address
+        <mat-icon class="stepIcon">house</mat-icon>
+      </ng-template>
+
+      <div class="divFlexCenter">
+        <div class="divFormStyling">
+          <mat-card class="form-container">
+            <mat-card-header class="divFlexColumn">
+              <mat-card-title>Shipping Address</mat-card-title>
+            </mat-card-header>
+            <mat-checkbox
+              class="checkboxSameAsBilling"
+              [checked]="sameAsBilling"
+              (change)="toggleSameAsBilling()"
+            >
+              Shipping address is the same as billing address
+            </mat-checkbox>
+            <div>
+              <div class="divFlexRow">
+                <div>
+                  <mat-form-field [style.width.px]="250">
+                    <mat-label>Address:</mat-label>
+                    <input
+                      matInput
+                      placeholder="Address:"
+                      id="shippingAddress"
+                      type="text"
+                      formControlName="shippingAddress"
+                      [value]="
+                        sameAsBilling
+                          ? billingForm.controls.billingAddress.value
+                          : null
+                      "
+                    />
+                    <mat-error
+                      *ngIf="
+                        shippingForm.controls.shippingAddress.invalid &&
+                        shippingForm.controls.shippingAddress.touched
+                      "
+                    >
+                      Please provide a shipping address
+                    </mat-error>
+                  </mat-form-field>
+                </div>
+                <div>
+                  <mat-form-field [style.width.px]="153">
+                    <mat-label>Address 2:</mat-label>
+                    <input
+                      matInput
+                      placeholder="Apt, suite, etc"
+                      id="shippingAddress2"
+                      type="text"
+                      formControlName="shippingAddress2"
+                      [value]="
+                        sameAsBilling
+                          ? billingForm.controls.billingAddress2.value
+                          : null
+                      "
+                    />
+                    <mat-error
+                      *ngIf="
+                        shippingForm.controls.shippingAddress2.invalid &&
+                        shippingForm.controls.shippingAddress2.touched
+                      "
+                    >
+                      Provide secondary address info
+                    </mat-error>
+                  </mat-form-field>
+                </div>
+              </div>
+            </div>
+            <div class="divFlexColumn">
+              <div>
+                <mat-form-field [style.width.px]="433">
+                  <mat-label>City</mat-label>
+                  <input
+                    matInput
+                    placeholder="City"
+                    id="shippingCity"
+                    type="text"
+                    formControlName="shippingCity"
+                    [value]="
+                      sameAsBilling
+                        ? billingForm.controls.billingCity.value
+                        : null
+                    "
+                  />
+                  <mat-error
+                    *ngIf="
+                      shippingForm.controls.shippingCity.invalid &&
+                      shippingForm.controls.shippingCity.touched
+                    "
+                  >
+                    Please provide a shipping city
+                  </mat-error>
+                </mat-form-field>
+              </div>
+              <div class="divFlexRow">
+                <div>
+                  <mat-form-field>
+                    <mat-label>State</mat-label>
+                    <mat-select
+                      id="shippingState"
+                      formControlName="shippingState"
+                      [value]="
+                        sameAsBilling
+                          ? billingForm.controls.billingState.value
+                          : null
+                      "
+                    >
+                      <mat-option>None</mat-option>
+                      <mat-option
+                        *ngFor="let stateCode of stateCodes"
+                        [value]="stateCode"
+                        >{{ stateCode }}</mat-option
+                      >
+                    </mat-select>
+                    <mat-error
+                      *ngIf="
+                        shippingForm.controls.shippingState.hasError(
+                          'required'
+                        ) && shippingForm.controls.shippingState.touched
+                      "
+                    >
+                      State is required
+                    </mat-error>
+                  </mat-form-field>
+                </div>
+                <div>
+                  <mat-form-field>
+                    <mat-label>Zip Code</mat-label>
+                    <input
+                      matInput
+                      placeholder="Ex. 12345 or 12345-6789"
+                      id="shippingZip"
+                      type="text"
+                      formControlName="shippingZip"
+                      (input)="formatZipCode(shippingForm.controls.shippingZip)"
+                      [value]="
+                        sameAsBilling
+                          ? billingForm.controls.billingZip.value
+                          : null
+                      "
+                    />
+                    <mat-error
+                      *ngIf="
+                        shippingForm.controls.shippingZip.invalid &&
+                        shippingForm.controls.shippingZip.touched
+                      "
+                    >
+                      Please provide a shipping zip code. Example 12345 or
+                      12345-6789
+                    </mat-error>
+                  </mat-form-field>
+                </div>
+              </div>
+              <div>
+                <button class="stepperBackButton" mat-button matStepperPrevious>
+                  Back
+                </button>
+                <button
+                  class="stepperNextButton"
+                  mat-button
+                  (click)="nextStep(shippingForm, stepper)"
+                >
+                  Next
+                </button>
+              </div>
+            </div>
+          </mat-card>
+        </div>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step>
+    <form [formGroup]="paymentForm">
+      <ng-template matStepLabel
+        >Payment Info
+        <mat-icon class="stepIcon">credit_card</mat-icon>
+      </ng-template>
+
+      <div class="divFlexCenter">
+        <div class="divFormStyling">
+          <mat-card class="form-container">
+            <mat-card-header class="divFlexColumn">
+              <mat-card-title>Payment Info</mat-card-title>
+            </mat-card-header>
+            <div>
+              <div>
+                <button (click)="giftCardSelected()">Add Gift Card</button>
+                <button (click)="creditCardSelected()">Add Credit Card</button>
+              </div>
+              <div *ngIf="addGiftCard; else creditCardContent">
+                <div class="divFlexColumn">
+                  <div>
+                    <mat-form-field [style.width.px]="433">
+                      <mat-label>Gift Card Code</mat-label>
+                      <div style="position: relative">
+                        <input
+                          matInput
+                          placeholder="Gift Card Code"
+                          id="giftCardCode"
+                          type="text"
+                          formControlName="giftCardCode"
+                          (input)="
+                            formatGiftCardCode(
+                              paymentForm.controls.giftCardCode
+                            )
+                          "
+                          style="padding-right: 50px"
+                          [(ngModel)]="giftCard"
+                          (blur)="maskGiftCard()"
+                          (focus)="unmaskGiftCard()"
+                        />
+                        <span
+                          (click)="unmaskGiftCard()"
+                          style="
+                            position: absolute;
+                            right: 235px;
+                            top: 50%;
+                            transform: translateY(-50%);
+                          "
+                          ><mat-icon>{{ giftCardEyeIcon }}</mat-icon></span
+                        >
+                      </div>
+                      <mat-error
+                        *ngIf="
+                          paymentForm.controls.giftCardCode.hasError(
+                            'incorrectLength'
+                          ) && paymentForm.controls.giftCardCode.touched
+                        "
+                      >
+                        Please provide the 12 character gift card code.
+                      </mat-error>
+                    </mat-form-field>
+                  </div>
+                </div>
+                <div>
+                  <button (click)="checkGiftCard()">Add</button>
+                </div>
+                <div>
+                  ${{giftCardBalance}}
+                </div>
+                <mat-form-field appearance="fill">
+                  <mat-label>Amount</mat-label>
+                  <input 
+                    matInput 
+                    type="number" 
+                    placeholder="Enter amount" 
+                    formControlName="giftCardCharge"
+                    [defaultValue]="0"
+                    (input)="
+                      formatGiftCardCode(
+                        paymentForm.controls.giftCardCharge
+                      )
+                     "
+                  >
+                  <span matPrefix>$&nbsp;</span>
+                </mat-form-field>
+                
+                <div>
+                  <button (click)="applyGiftCard()">Apply Gift Card</button>
+                </div>
+              </div>
+              <ng-template #creditCardContent>
+                <div class="divFlexColumn">
+                  <div>
+                    <mat-form-field [style.width.px]="433">
+                      <mat-label>Name on Card</mat-label>
+                      <input
+                        matInput
+                        placeholder="Name on Card"
+                        id="nameOnCard"
+                        type="text"
+                        formControlName="nameOnCard"
+                      />
+                      <mat-error
+                        *ngIf="
+                          paymentForm.controls.nameOnCard.invalid &&
+                          paymentForm.controls.nameOnCard.touched
+                        "
+                      >
+                        Please provide the full name on your credit card
+                      </mat-error>
+                    </mat-form-field>
+                  </div>
+                  <div>
+                    <mat-form-field [style.width.px]="433">
+                      <mat-label>Credit Card Number</mat-label>
+
+                      <div style="position: relative">
+                        <input
+                          matInput
+                          placeholder="Credit Card Number"
+                          id="creditCardNumber"
+                          type="text"
+                          formControlName="creditCardNumber"
+                          (input)="
+                            formatCreditCardNumber(
+                              paymentForm.controls.creditCardNumber
+                            )
+                          "
+                          style="padding-right: 50px"
+                          [(ngModel)]="creditCard"
+                          (blur)="maskCreditCard()"
+                          (focus)="unmaskCreditCard()"
+                        />
+                        <span
+                          (click)="unmaskCreditCard()"
+                          style="
+                            position: absolute;
+                            right: 235px;
+                            top: 50%;
+                            transform: translateY(-50%);
+                          "
+                          ><mat-icon>{{ eyeIcon }}</mat-icon></span
+                        >
+                        <span
+                          *ngIf="cardType"
+                          style="
+                            position: absolute;
+                            right: 10px;
+                            top: 50%;
+                            transform: translateY(-50%);
+                            color: rgb(109, 109, 109);
+                          "
+                        >
+                          {{ cardType }}
+                        </span>
+                      </div>
+                      <mat-error
+                        *ngIf="
+                          paymentForm.controls.creditCardNumber.hasError(
+                            'incorrectLength'
+                          ) && paymentForm.controls.creditCardNumber.touched
+                        "
+                      >
+                        Please provide the 15 or 16 digit credit card number.
+                      </mat-error>
+                      <mat-error
+                        *ngIf="
+                          paymentForm.controls.creditCardNumber.hasError(
+                            'invalidStartDigit'
+                          ) && paymentForm.controls.creditCardNumber.touched
+                        "
+                      >
+                        Only major credit cards are accepted, number should
+                        start with 3, 4, 5, or 6.
+                      </mat-error>
+                    </mat-form-field>
+                  </div>
+                  <div>
+                    <div class="divFlexRow">
+                      <div>
+                        <mat-form-field>
+                          <mat-label>Expiration Date</mat-label>
+                          <input
+                            matInput
+                            placeholder="MM/YY"
+                            id="expDate"
+                            type="text"
+                            formControlName="expDate"
+                            (input)="
+                              formatCardExpiration(paymentForm.controls.expDate)
+                            "
+                          />
+                          <mat-error
+                            *ngIf="
+                              paymentForm.controls.expDate.invalid &&
+                              paymentForm.controls.expDate.touched
+                            "
+                          >
+                            Please provide a valid card expiration date as MM/YY
+                          </mat-error>
+                        </mat-form-field>
+                      </div>
+                      <div>
+                        <mat-form-field>
+                          <mat-label>CVV</mat-label>
+                          <input
+                            matInput
+                            placeholder="CVV"
+                            id="cvv"
+                            type="text"
+                            formControlName="cvv"
+                            (input)="formatCVV(paymentForm.controls.cvv)"
+                          />
+                          <mat-error
+                            *ngIf="
+                              paymentForm.controls.cvv.invalid &&
+                              paymentForm.controls.cvv.touched
+                            "
+                          >
+                            Please provide the 3 or 4 digit CVV code
+                          </mat-error>
+                        </mat-form-field>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div>
+                    <button
+                      class="stepperBackButton"
+                      mat-button
+                      matStepperPrevious
+                    >
+                      Back
+                    </button>
+                    <button
+                      class="stepperNextButton"
+                      mat-button
+                      (click)="
+                        nextStep(paymentForm, stepper);
+                        redirectToOrderConfirmation()
+                      "
+                    >
+                      Finish
+                    </button>
+                  </div>
+                </div>
+              </ng-template>
+            </div>
+          </mat-card>
+        </div>
+      </div>
+    </form>
+  </mat-step>
+</mat-stepper>

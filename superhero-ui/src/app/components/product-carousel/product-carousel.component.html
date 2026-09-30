@@ -1,0 +1,25 @@
+<div class="new-releases-header">
+  <h1 [style.background-color]="headerColor.length > 0 && headerColor" [style.color]="fontColor.length > 0 && fontColor">{{header}}
+  </h1>
+  <button mat-raised-button class="seeAll-btn" routerLink="/products" role="link">See All Products</button>
+</div>
+<div class="new-releases-container">
+  <p *ngIf="products.length === 0" class="no-product-msg">No products to show!</p>
+  <section class="product">
+    <div class="slider-wrap">
+      <div class="slider-main" *ngIf="products.length >= 1">
+        <div class="item" *ngFor="let product of products | slice: 0: 10" routerLink="products/{{product.id}}">
+          <app-comic-card [product]="product" [topProducts]="products"></app-comic-card>
+        </div>
+      </div>
+      <div class="button-area" *ngIf="products.length > 0">
+        <button mat-mini-fab type="button" class="prev" appPrevButton aria-label="previous">
+          <mat-icon>keyboard_arrow_left</mat-icon>
+        </button>
+        <button mat-mini-fab type="button" class="next" appNextButton aria-label="forward">
+          <mat-icon>keyboard_arrow_right</mat-icon>
+        </button>
+      </div>
+    </div>
+  </section>
+</div>

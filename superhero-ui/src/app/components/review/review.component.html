@@ -1,0 +1,18 @@
+<div class="container">
+    <p *ngIf="reviews?.length < 1">No reviews to show! Be the first to leave one!</p>
+    <mat-card class="review" *ngFor="let review of reviews">
+        <mat-icon>account_circle</mat-icon>
+        <mat-card-subtitle class="date">{{ review.reviewDate }}</mat-card-subtitle>
+        <mat-card-title-group>
+            <mat-card-subtitle class="username">User Name</mat-card-subtitle>
+        </mat-card-title-group>
+    
+        <mat-card-content>
+            <mat-card-title>{{ review.title }}</mat-card-title>
+            <div class="rating">
+                <app-star-rating [selectedStar]="review.rating"></app-star-rating>
+            </div>
+            <p class="comment">{{ review.comment }}</p>
+        </mat-card-content>
+    </mat-card>
+</div>

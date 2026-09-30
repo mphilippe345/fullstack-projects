@@ -1,0 +1,53 @@
+.comment {
+    padding-top: 5px;
+}
+
+.container {
+    margin-left: 5%;
+    margin-top: 1.5%;
+    margin-right: 5%;
+    padding-bottom: 150px;
+}
+
+.date {
+    display: block;
+    float: right;
+    margin-top: 50px;
+}
+
+.review {
+    margin-bottom: 10px;
+}
+
+.info {
+    margin-left: .5px;
+}
+
+.mat-icon {
+    display: block;
+    float: left;
+    font-size: 30px;
+}
+
+.rating {
+    margin-top: -5px;
+}
+
+.username {
+    display: block;
+    float: left;
+    padding-left: 15px;
+    padding-top: 5px;
+}
+
+mat-card-title {
+    font-size: medium;
+}
+
+mat-card-content {
+    padding-top: 25px;
+}
+
+mat-card-content {
+    margin-top: -27px;
+}

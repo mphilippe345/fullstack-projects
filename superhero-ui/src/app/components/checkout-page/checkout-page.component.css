@@ -1,0 +1,79 @@
+.checkoutContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    margin-top: 5.5%;
+}
+
+@media (max-width: 1087px) {
+  .checkoutContainer {
+    flex-direction: column;
+    margin-bottom: 12rem;
+  }
+}
+
+@media (max-width: 600px) {
+    .checkoutContainer {
+      width: 80%;
+    }
+  }
+  
+  @media (min-width: 720px) and (max-width: 960px) {
+    .checkoutContainer {
+      width: 90%;
+    }
+  }
+  
+  @media (min-width: 961px) and (max-width: 1280px) {
+    .checkoutContainer {
+      width: 95%;
+      margin-top: 8.5%;
+      margin-bottom: 3%;
+    }
+  }
+  
+  @media (min-width: 1281px) and (max-width: 1600px) {
+    .checkoutContainer {
+      width: 50rem;
+      margin-top: 9%;
+      margin-bottom: 5%;
+    }
+  }
+  
+  @media (min-width: 1601px) {
+    .checkoutContainer {
+      width: 60rem;
+    }
+  }
+  @media (min-width: 1920px) {
+    .checkoutContainer {
+      width: 80rem;
+    }
+  }
+
+  .graphicContainer {
+    width: 100%;
+    height: 80%;
+    text-align: center;
+    margin-top: 12px;
+    box-shadow: 2px 2px 8px 2px #d6d6d6;
+  }
+  
+  @media (max-width: 1085px) {
+    .graphicContainer {
+      margin-top: 25px;
+      margin-bottom: 20px;
+      width: 100%;
+      height: 100%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
+  .hero {
+    margin-top: 15px;
+    width: 30%;
+    height: 30%;
+  }

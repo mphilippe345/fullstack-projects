@@ -1,0 +1,142 @@
+.flip-card {
+  width: 250px;
+  height: 150px;
+  background-color: transparent;
+  perspective: 1000px;
+  margin-left: 30px;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.front-card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  border-radius: 10px;
+  box-shadow: 0px 0px 18px -1px #2e2e2e;
+  padding: 10px;
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.front-card,
+.back-card {
+  position: absolute;
+  width: 250px;
+  height: 150px;
+  backface-visibility: hidden;
+}
+
+.back-card {
+  display: flex;
+  flex-direction: column;
+  width: 250px;
+  height: 150px;
+  background: transparent;
+  border-radius: 10px;
+  box-shadow: 0px 0px 18px -1px #2e2e2e;
+  transform: rotateY(180deg);
+  padding: 10px;
+}
+
+.bar {
+  width: 108%;
+  height: 30px;
+  margin-top: 15px;
+  background-color: black;
+  align-self: center;
+}
+
+.sigBar {
+  display: flex;
+  justify-content: flex-end;
+  width: 90%;
+  height: 20px;
+  margin-top: 15px;
+  align-self: center;
+  background-color: white;
+  border-radius: 2px;
+
+}
+
+.cvv {
+  font-size: 10px;
+  font-weight: 400;
+  color: black;
+  margin-right: 3px;
+}
+
+.iconFront {
+  margin-left: auto;
+  margin-top: 2%;
+}
+
+.iconBack {
+  margin-left: auto;
+  margin-top: 10%;
+}
+
+.nameAndDate {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.expDate {
+  display: flex;
+  flex-direction: column;
+  width: auto;
+  height: auto;
+  color: rgb(254, 254, 254);
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  margin-top: 1%;
+  margin-right: 2px;
+
+  .title {
+    font-size: 10px;
+    opacity: 50%;
+  }
+}
+
+.cardName {
+  display: flex;
+  flex-direction: column;
+  width: auto;
+  height: auto;
+  color: rgb(254, 254, 254);
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  margin-top: 1%;
+  margin-left: 2px;
+
+  .title {
+    font-size: 10px;
+    opacity: 50%;
+  }
+}
+
+.parts {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  margin-top: 8%;
+}
+
+.cardNumber {
+  font-size: 18px;
+  font-stretch: semi-expanded;
+  font-weight: 100;
+  letter-spacing: .2rem;
+  color: white;
+}

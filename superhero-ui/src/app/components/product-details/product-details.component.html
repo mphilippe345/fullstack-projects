@@ -1,0 +1,83 @@
+<div class="body">
+  <section>
+    <img
+      class="image"
+      src="{{ product?.imageUrl }}"
+      alt="Image of the cover of {{ product?.title }}."
+    />
+    <app-star-rating class="rating" [selectedStar]="rating"></app-star-rating>
+    <div class="description">
+      <h1>{{ product?.title }}</h1>
+      <h2>{{ product?.author }}</h2>
+      <p>{{ product?.description }}</p>
+      <p>
+        <strong>Price:</strong>
+        {{ getConditionPrice(product?.price!).toFixed(2) | currency }}
+      </p>
+      <h3>Product Details</h3>
+      <div class="details">
+        <p><strong>Issue:</strong> #{{ product?.issue }}</p>
+        <p *ngIf="product?.volume != null">
+          <strong>Volume:</strong> {{ product?.volume }}
+        </p>
+        <p><strong>Publisher:</strong> {{ product?.publisher }}</p>
+        <p><strong>Genre:</strong> {{ product?.genre | titlecase }}</p>
+        <p><strong>Release Date:</strong> {{ product?.releaseDate }}</p>
+        <form *ngIf="product?.stockStatus">
+          <mat-form-field class="condition-container">
+            <mat-label>Condition</mat-label>
+            <mat-select [(ngModel)]="selectedCondition" name="condition">
+              <mat-option
+                *ngFor="let condition of conditions"
+                [value]="condition"
+                >{{ condition.replace("-", " ") | titlecase }}</mat-option
+              >
+            </mat-select>
+          </mat-form-field>
+        </form>
+      </div>
+      <div class="sold" *ngIf="!product?.stockStatus">Out of Stock</div>
+      <button class="add" mat-icon-button *ngIf="product?.stockStatus">
+        <button
+          mat-icon-button
+          title="Add to cart."
+          (click)="addToCart(product)"
+        >
+          <mat-icon>add_circle</mat-icon>
+        </button>
+      </button>
+      <div class="buttons">
+        <button
+          mat-icon-button
+          title="Add to wishlist."
+          aria-label="add to wishlist"
+        >
+          <mat-icon>favorite_border</mat-icon>
+        </button>
+      </div>
+    </div>
+    <app-related-products [products]="relatedProducts" [stockStatus]="product.stockStatus"></app-related-products>
+
+    <div class="review-title-and-sort-container">
+      <h2 class="review-title">Reviews</h2>
+
+      <mat-form-field class="sort-container">
+        <mat-label>Sort</mat-label>
+        <mat-select
+          class="sort-select"
+          value="newest"
+          (selectionChange)="onSelectSort($event)"
+        >
+          <mat-option value="newest">Newest</mat-option>
+          <mat-option value="oldest">Oldest</mat-option>
+          <mat-option value="ratingLow">Rating Low-to-High</mat-option>
+          <mat-option value="ratingHigh">Rating High-to-Low</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div class="review-container">
+      <app-review [reviews]="reviewArray"></app-review>
+    </div>
+  </section>
+</div>

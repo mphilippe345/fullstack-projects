@@ -1,0 +1,184 @@
+.bg {
+    top: 0;
+    position: fixed;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    z-index: -5;
+    opacity: 80%;
+    filter: blur(.9px);
+
+}
+.backdrop {
+    top: 0;
+    position: fixed;
+    width: 86.5%;
+    height: 90%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    z-index: -1;
+    opacity: 85%;
+    background-color: rgb(255, 255, 255);
+    margin-left: 7%;
+    margin-right: 7%;
+    box-shadow: 0 1px 5px 1px rgb(132, 131, 131),
+    0 -1px 0 0 rgb(111, 110, 110),
+    0 -1px .5px 0 rgb(159, 159, 159);
+}
+
+.fixed-header {
+    display: flex;
+    width: 92%;
+    position: fixed;
+    top: 0;
+    margin-left: 4%;
+    margin-right: 0;
+    z-index: 100;
+    background-color: black;
+    height: 6.5rem;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    box-shadow: 0 3px 10px -1px rgba(0, 0, 0, 1),
+        0 1px 1px 0 rgba(0, 0, 0, 1),
+        0 1px 3px 0 rgba(0, 0, 0, 1);
+}
+
+img.logo {
+    float: left;
+    display: flex;
+    margin-left: 3vw;
+    width: 120px;
+    height: 125px;
+    margin-top: -1.4rem;
+    cursor: pointer;
+}
+
+.badge {
+    width: 40px;
+    position: absolute;
+    margin-top: 0.75rem;
+    color: red;
+}
+
+.cart-container {
+    max-width: 20px;
+    max-height: 20px;
+}
+
+.nav-button-container {
+    margin-left: 17%;
+    list-style-type: none;
+    display: flex;
+}
+
+.nav-button {
+    padding: 10px;
+    color: white;
+    font-size: 18px;
+    text-decoration: none;
+    cursor: pointer;
+    font-family: 'Quicksand';
+    text-decoration: none;
+    cursor: pointer;
+    font-family: 'Quicksand';
+    margin-top: 3rem;
+}
+
+.home {
+    margin-left: 2%;
+}
+
+.hover-underline-animation {
+    display: inline-block;
+    position: relative;
+    color: white;
+}
+
+.hover-underline-animation:after {
+    content: '';
+    position: absolute;
+    width: 90%;
+    transform: scaleX(0);
+    height: 1.7px;
+    bottom: 20px;
+    left: 4px;
+    background-color: #F25050;
+    transform-origin: bottom right;
+    transition: transform 0.35s ease-out;
+    border-radius: 50px;
+}
+
+a.hover-underline-animation:hover:after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+::ng-deep .custom-tooltip {
+    background-color: rgb(83, 83, 83);
+    font-size: 13px;
+}
+.img-buttons {
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-column-gap: 2vw;
+  margin-left: auto;
+  margin-right: 3vw;
+}
+.nav-img {
+    margin-top: 2.4rem;
+    margin-right: 2%;
+}
+
+img.user {
+  height: 3rem;
+}
+
+img.cart {
+  height: 3.2rem;
+}
+
+@media screen and (max-width: 529px){
+  .img-buttons {
+    margin-top: -2.5rem;
+    margin-left: 13.2rem;
+    position: absolute;
+  }
+  .hover-underline-animation {
+    margin-top: 2px;
+  }
+}
+
+.rightClickMenu {
+    display: inline-flex;
+  flex-direction: column;
+  min-width: 180px;
+  max-width: 280px;
+  background-color: rgb(255, 255, 255);
+  padding: 6px 0;
+}
+
+.navigateBtn {
+    background-color: transparent;
+    cursor: pointer;
+    border: none;
+  
+    user-select: none;
+    min-width: 64px;
+    line-height: 36px;
+    padding: 0 16px;
+  
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    flex: 1;
+  }
+  
+  .navigateBtn:hover {
+    background-color: rgb(208, 208, 208);
+  }
+  
+  .navigateBtn:active {
+    background-color: rgb(170, 170, 170);
+  }

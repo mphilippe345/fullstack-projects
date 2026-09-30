@@ -1,0 +1,161 @@
+.container {
+  position: relative;
+  text-align: center;
+  color: rgb(4, 161, 143);
+  color: rgb(54, 54, 54);
+  font-stretch: ultra-expanded;
+  border: white solid 3px;
+  margin-top: 2%;
+  margin-right: -.5%;
+  border-radius: 11px;
+}
+
+.gImg {
+  margin-bottom: -.6%;
+  opacity: 90%;
+  margin-left: -.135%;
+}
+
+.whitebox {
+  background-color: rgba(217, 217, 217, 0.889);
+  background-color: rgba(245, 245, 245, 0.907);
+ /* background-color:rgba(236, 220, 202, 0.9);*/
+  position: absolute;
+  top: 65.5%;
+  left:50.5%;
+  transform: translate(-50%, -50%);
+  width: 73%;
+  /*height: 30%;*/
+  height: 22%;
+  border-radius: 20px;
+  box-shadow: 0 3px 10px -1px rgba(0, 0, 0, 1),
+  0 1px 1px 0 rgba(0, 0, 0, 1),
+  0 1px 3px 0 rgba(0, 0, 0, 1);
+}
+
+.centered {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 73px;
+  font-weight: bold;
+  /*
+  left: 20%;
+  right: 50%;
+  line-height:90%;
+  text-shadow: 5px 5px 5px #905e5e;*/
+  font-family: "Quicksand";
+}
+
+.action {
+  position: absolute;
+  width: 40px;
+  top: -55%;
+  left: 14%;
+  right: 23%;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.cartoon {
+  position: absolute;
+  width: 35px;
+  top: -50%;
+  left: 26.5%;
+  right: 23%;
+  font-weight: 500;
+  cursor: pointer;
+}
+.superhero {
+  position: absolute;
+  width: 39px;
+  top: -51%;
+  left: 42%;
+  right: 23%;
+  font-weight: 500;
+  cursor: pointer;
+}
+.alien {
+  position: absolute;
+  width: 39px;
+  top: -60%;
+  left: 55.5%;
+  right: 23%;
+  font-weight: 500;
+  cursor: pointer;
+}
+.fantasy {
+  position: absolute;
+  width: 33px;
+  top: -48%;
+  left: 66.9%;
+  right: 23%;
+  font-weight: 500;
+  cursor: pointer;
+}
+.drama {
+  position: absolute;
+  width: 36px;
+  top: -50%;
+  left: 79%;
+  right: 23%;
+  font-weight: 500;
+  cursor: pointer;
+}
+.all {
+  position: absolute;
+  width: 40px;
+  top: -55%;
+  left: 88.6%;
+  right: 23%;
+  font-weight: 500;
+  cursor: pointer;
+}
+.bottom {
+  position: absolute;
+  top: 63%;
+  left: 10%;
+  right: 13%;
+  font-weight: 600;
+  font-family: "Quicksand";
+
+}
+
+li {
+  display: inline-block;
+  padding: 20px;
+  font-size: 21px;
+  text-decoration: none;
+  cursor: pointer;
+  font-weight: bold;
+
+}
+
+.hover-underline-animation {
+  display: inline-block;
+  position: relative;
+  color: rgb(47, 47, 47);
+  font-stretch: ultra-expanded;
+}
+
+.hover-underline-animation:after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 3px;
+  bottom: 8px;
+  left: .7px;
+  background-color: rgb(13, 104, 92);
+  background-color: rgb(56, 61, 61);
+  background-color: rgb(213, 178, 3);
+  transform-origin: bottom right;
+  transition: transform 0.35s ease-out;
+  border-radius: 50px;
+}
+
+.hover-underline-animation:hover:after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}

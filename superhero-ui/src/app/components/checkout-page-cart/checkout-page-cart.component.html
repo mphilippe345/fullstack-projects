@@ -1,0 +1,187 @@
+<div class="container">
+  <mat-card class="cart-card">
+    <mat-card-header>
+      <mat-card-title>Shopping Cart</mat-card-title>
+    </mat-card-header>
+    <mat-card-content class="product-content">
+      <ng-container *ngFor="let product of products">
+        <div
+          *ngIf="cartService.getProductQuantityByIdAndPrice(product.id, product.price) > 0"
+          class="product-display"
+        >
+          <a routerLink="{{ '/products/' + product.id }}"
+          ><img
+            src="{{ product?.imageUrl }}"
+            alt="Cover of {{ product?.title }}."
+            class="image"
+            [height]="100"
+          /></a>
+          <div class="product-info">
+            <div class="title-and-price">
+              <span class="title"
+              ><a routerLink="{{ '/products/' + product.id }}">{{
+                product.title
+                }}</a></span
+              >
+              <span class="condition-chip"
+                    [ngStyle]="{'background-color': getChipColor(product.condition!)}">{{
+                formatChip(product.condition!) |
+                titlecase }}</span>
+            </div>
+            <div class="price">
+              <div class="unit-price">
+                <span class="price-inline">Unit Price:</span>
+                {{ product.price | currency }}
+              </div>
+              <div
+                *ngIf="!discountsApplied || !isDiscountedProduct(product.id!)"
+              >
+                <span class="price-inline">Total:</span>
+                {{
+                product.price * cartService.getProductQuantityByIdAndPrice(product.id, product.price)
+                  | currency
+                }}
+              </div>
+              <div *ngIf="discountsApplied && isDiscountedProduct(product.id!)">
+                <span class="price-inline">Total:</span>
+                <span class="original-product-price">{{
+                  product.price * cartService.getProductQuantityByIdAndPrice(product.id, product.price)
+                    | currency
+                  }}</span>
+                <span class="discounted-product-price">{{
+                  itemInCartDiscountedPrice *
+                  cartService.getProductQuantityByIdAndPrice(product.id, product.price) | currency
+                  }}</span>
+              </div>
+            </div>
+            <div class="quantity-group">
+              <span class="price-inline">Quantity</span>
+              <div>
+                <button
+                  (click)="
+                  cartService.getProductQuantityByIdAndPrice(product.id, product.price) == 1
+                    ? openDialogForRemoveItemFromCart(product)
+                    : cartService.removeProduct(product)
+                "
+                  class="plus-minus-input minus"
+                  (click)="discountsApplied ? applyPromo() : null"
+                  aria-label="minus"
+                >
+                  -
+                </button>
+                <input
+                  [disabled]="true"
+                  value="{{ cartService.getProductQuantityByIdAndPrice(product.id, product.price) }}"
+                  class="quantity-input"
+                />
+                <button
+                  (click)="cartService.addToCart(product)"
+                  (click)="discountsApplied ? applyPromo() : null"
+                  class="plus-minus-input plus"
+                >
+                  +
+                </button>
+              </div>
+              <button
+                class="delete-button"
+                (click)="openDialogForRemoveItemFromCart(product)"
+                aria-label="remove item from cart"
+              >
+                <mat-icon class="delete-icon">delete</mat-icon>
+              </button>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+    </mat-card-content>
+    <mat-card-actions
+      class="emptyCartContainer"
+      *ngIf="cartService.getItemCount() > 0"
+    >
+      <button
+        mat-raised-button
+        (click)="openDialogForEmptyCart()"
+        aria-label="empty cart"
+      >
+        Empty Cart
+      </button>
+    </mat-card-actions>
+  </mat-card>
+  <mat-card class="cost-card">
+    <mat-card-content class="cost-content">
+      <div class="total-info">
+        <mat-form-field class="promo-code">
+          <mat-label
+            [class.error]="invalidPromo"
+            [class.applied-promo]="discountsApplied"
+          >Promo Code
+          </mat-label
+          >
+          <input
+            matInput
+            [(ngModel)]="promoCode"
+            [readonly]="discountsApplied"
+            [class.applied-promo]="discountsApplied"
+          />
+        </mat-form-field>
+        <mat-error *ngIf="invalidPromo"> Invalid promo code.</mat-error>
+        <mat-card-actions class="promoApplyBttn">
+          <button
+            mat-raised-button
+            (click)="applyPromo()"
+            *ngIf="!discountsApplied"
+          >
+            Apply
+          </button>
+          <button
+            class="promo-delete-bttn"
+            *ngIf="discountsApplied"
+            (click)="clearPromoCode()"
+          >
+            <mat-icon class="delete-icon">delete</mat-icon>
+          </button>
+        </mat-card-actions>
+        <div class="total-cost-container">
+          <div class="inline-label">
+            Subtotal:
+            <span class="inline-price">{{
+              cartService.getTotal() | currency
+              }}</span>
+          </div>
+          <div class="inline-label">
+            Discounts:
+            <span class="inline-price" *ngIf="discountsApplied"
+            >{{ discountRate }}% off applied!</span
+            >
+            <span class="inline-price" *ngIf="!discountsApplied">None</span>
+          </div>
+          <div class="inline-label">
+            Shipping Cost: <span class="inline-price">{{ 0 | currency }}</span>
+          </div>
+          <div class="inline-label">
+            Taxes: <span class="inline-price">{{ 0 | currency }}</span>
+          </div>
+          <div class="inline-label">
+            GiftCard: 
+            <span class="inline-price" [(ngModel)]="giftCardDeductionModel">- {{ giftCardDeductionModel | currency }}</span>
+          </div>
+          <div *ngIf="discountsApplied" class="inline-label">
+            Total:
+            <div class="inline-price total">
+              <span class="original-price">{{
+                cartService.getTotalMinusGiftCard() | currency
+                }}</span>
+              <span class="promo-price">{{ promoPrice | currency }}</span>
+            </div>
+          </div>
+          <div class="inline-label" *ngIf="!discountsApplied">
+            Total:
+            <span class="inline-price">{{
+              cartService.getTotalMinusGiftCard() | currency
+              }}</span>
+          </div>
+        </div>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>

@@ -1,0 +1,85 @@
+body {
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+}
+
+.content-main {
+    position: relative;
+    width: 100%;
+    /* margin: 40px auto; */
+}
+
+.content-main:before,
+.content-main:after {
+    content: "";
+    height: 2px;
+    width: 100%;
+    position: absolute;
+    transform: rotate(90deg);
+    -webkit-clip-path: polygon(0% 0%, 5% 100%, 10% 0%, 15% 100%, 20% 0%, 25% 100%, 30% 0%, 35% 100%, 40% 0%, 45% 100%, 50% 0%, 55% 100%, 60% 0%, 65% 100%, 70% 0%, 75% 100%, 80% 0%, 85% 100%, 90% 0%, 95% 100%, 100% 0%);
+    clip-path: polygon(0% 0%, 5% 100%, 10% 0%, 15% 100%, 20% 0%, 25% 100%, 30% 0%, 35% 100%, 40% 0%, 45% 100%, 50% 0%, 55% 100%, 60% 0%, 65% 100%, 70% 0%, 75% 100%, 80% 0%, 85% 100%, 90% 0%, 95% 100%, 100% 0%);
+}
+
+.content-main:before {
+    height: auto;
+    background-color: rgb(240, 240, 240);
+    left: -50%;
+}
+
+.content-main:after {
+    height: auto;
+    background-color: rgb(240, 240, 240);
+    right: -50%;
+}
+
+.content-main .content-box {
+    height: auto;
+    overflow: hidden;
+    padding: 20px;
+    background: rgb(240, 240, 240);
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.25);
+}
+
+.content-main .content-box:before,
+.content-main .content-box:after {
+    content: "";
+    height: 2px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    -webkit-clip-path: polygon(0% 0%, 5% 100%, 10% 0%, 15% 100%, 20% 0%, 25% 100%, 30% 0%, 35% 100%, 40% 0%, 45% 100%, 50% 0%, 55% 100%, 60% 0%, 65% 100%, 70% 0%, 75% 100%, 80% 0%, 85% 100%, 90% 0%, 95% 100%, 100% 0%);
+    clip-path: polygon(0% 0%, 5% 100%, 10% 0%, 15% 100%, 20% 0%, 25% 100%, 30% 0%, 35% 100%, 40% 0%, 45% 100%, 50% 0%, 55% 100%, 60% 0%, 65% 100%, 70% 0%, 75% 100%, 80% 0%, 85% 100%, 90% 0%, 95% 100%, 100% 0%);
+}
+
+.content-main .content-box:before {
+    background-color: rgb(240, 240, 240);
+    top: -2px;
+}
+
+.content-main .content-box:after {
+    background-color: rgb(240, 240, 240);
+    bottom: -2px;
+}
+
+.productContainer {
+    height: 20rem;
+}
+
+.products {
+    height: 80%;
+    overflow: auto;
+}
+
+.productCols {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.productRow {
+    display: block;
+}
+
+.orderTotal {
+    margin-top: 20px;
+}

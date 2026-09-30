@@ -1,0 +1,31 @@
+/* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400&display=swap");
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  font-family: "Quicksand", sans-serif;
+  margin: 8vh 0 0;
+}
+
+@keyframes shake {
+  25% {
+    transform:translateX(6px)
+  }
+  50% {
+    transform:translateX(-4px);
+  }
+  75% {
+    transform:translateX(2px);
+  }
+  100% {
+    transform:translateX(0);
+  }
+}
+
+.mat-progress-spinner.spin-on-instance {
+  vertical-align: middle;
+}

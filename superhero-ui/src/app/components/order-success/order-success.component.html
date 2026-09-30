@@ -1,0 +1,16 @@
+<div class="infoContainer" *appSpinner="loading; margin: '250px auto'">
+  <mat-card class="card">
+    <h1 class="header"><b>Your order has been placed!</b></h1>
+    <img class="check" [src]="checkIcon" />
+    <mat-card-content>
+      <h3>
+        Thank you for your order {{ name }}! A confirmation email was sent to
+        {{ email }}.
+      </h3>
+      <p>Your order number is: {{ orderNumber | uppercase }}</p>
+    </mat-card-content>
+    <mat-card-actions>
+        <button class="navBtn" type="button" (click)="router.navigate(['/'])">Continue Shopping?</button>
+    </mat-card-actions>
+  </mat-card>
+</div>

@@ -1,0 +1,91 @@
+<mat-drawer-container>
+  <mat-drawer #sideNav mode="over">
+    <div class="filter-drawer">
+      <br><b>Price</b><br>
+      <div class="custom-slider">
+        <ngx-slider [(value)]="value" [(highValue)]="highValue" [options]="options"></ngx-slider>
+      </div>
+      <hr>
+      <b>Publisher</b><br>
+      <div *ngFor="let publisher of publishers">
+        <mat-checkbox value=publisher (change)="isChecked(publisher, 'publishers')">{{publisher}}</mat-checkbox>
+      </div>
+      <hr>
+      <b>Release Date</b> <br>
+      <input type="date" [(ngModel)]="releaseDate1"> <br>
+      <hr>
+      <mat-checkbox value=newrelease (change)="isChecked($event, 'newrelease')"><b>New
+          Release</b></mat-checkbox><br>
+      <mat-checkbox value=bestSeller (change)="isChecked($event, 'bestSeller')"><b>Best
+          Seller</b></mat-checkbox><br>
+      <hr>
+      <b>Genre</b> <br>
+      <div *ngFor="let genre of genres">
+        <mat-checkbox value=genre (change)="isChecked(genre, 'genres')">{{genre | titlecase}}</mat-checkbox>
+      </div>
+      <hr>
+      <button class="apply-button" (click)="sideNav.toggle(); onSelectSort($event)">APPLY</button>
+      <button class="cancel-button" (click)="sideNav.toggle()">CLOSE</button>
+    </div>
+  </mat-drawer>
+  <mat-drawer-content>
+    <div class="product-page" aria-label="products page">
+      <div class="search-and-sort-container">
+        <mat-form-field class="search-bar">
+          <mat-label class="input-label">Search</mat-label>
+          <input matInput aria-label="comic search" [matAutocomplete]="auto" class="search-input"
+            [formControl]="comicSearch" (keyup.enter)="autocompleteTrigger?.closePanel()"
+            (input)="onSearchTermChanged()">
+          <mat-icon matSuffix>search</mat-icon>
+          <mat-autocomplete #auto>
+            <mat-option *ngFor="let product of filteredTitlesAndImages$ | async" [value]="product"
+              [ngClass]="(filteredTitlesAndImages$ | async)?.length == 1 ? 'search-option-single' : 'search-option'"
+              routerLink="{{ '/products/' + product.id }}" (onSelectionChange)="redirectToDetails(product.id)">
+              <img src="{{ product?.imageUrl }}" alt="Cover of {{ product?.title }}." class="search-img"
+                [height]="100" />
+              <div class="title-price">
+                <p class="title">{{product.title}}</p>
+                <p class="price-inline"><span class="unit-price">Author:</span> {{product.author}}</p>
+                <p class="price-inline"><span class="unit-price">Publisher:</span> {{product.publisher}}</p>
+              </div>
+            </mat-option>
+          </mat-autocomplete>
+        </mat-form-field>
+        <mat-form-field class="sort-container">
+          <mat-label class="input-label">Sort</mat-label>
+          <mat-select class="sort-select" (selectionChange)="onSelectSort($event)" [disabled]="loading">
+            <mat-option value="newRelease">Newest</mat-option>
+            <mat-option value="priceLow">Lowest Price</mat-option>
+            <mat-option value="priceHigh">Highest Price</mat-option>
+            <mat-option value="title">Alphabetical</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <div>
+          <button type="button" matTooltip="Filter" [ngClass]="{'nav-button-no-products': loadedProducts.length == 0}" class="nav-button-products"
+            (click)="sideNav.toggle()"><i class="material-icons" alt="Filter" onclick="">filter_alt</i></button>
+        </div>
+      </div>
+      <div *appSpinner="loading; margin: '250px auto'">
+        <div class="no-product-container">
+          <p *ngIf="loadedProducts.length < 1" class="no-product-msg">No products to show!</p>
+          <p *ngIf="loadedProducts.length < 1 && comicSearch.value.length > 0" class="no-product-msg">
+            Keyword of
+            <span class="keyword">{{comicSearch.value}}</span>
+            did
+            not match
+            any of the comics we have on record.
+          </p>
+        </div>
+        <div [ngClass]="loadedProducts.length == 3 ? 'cardholder-3' : 'cardholder'"
+          *ngIf="loadedProducts.length >= 1">
+          <div *ngFor="let product of loadedProducts">
+            <app-comic-card [product]="product" [topProducts]="topProducts"></app-comic-card>
+          </div>
+        </div>
+      </div>
+    </div>
+    <mat-paginator [length]="totalProducts" [pageSize]="12" [pageSizeOptions]="[12, 24, totalProducts]"
+      (page)="onPaginatorChange($event)" [showFirstLastButtons]="true" aria-label="Select page">
+    </mat-paginator>
+  </mat-drawer-content>
+</mat-drawer-container>

@@ -1,0 +1,109 @@
+.mat-card {
+  height: 260px;
+}
+
+.info {
+  margin-top: 5%;
+  margin-left: 3%;
+}
+
+.mat-card-title {
+  font-kerning: none;
+  line-height: 107%;
+  margin-bottom: 17.5px;
+  margin-top: -10px;
+  cursor: pointer;
+}
+
+.mat-card:hover {
+  background-color: #f0f0f0;
+}
+
+.mat-card-subtitle {
+  color: rgb(78, 78, 78);
+  line-height: 95%;
+  cursor: pointer;
+
+}
+
+.description {
+  max-height: 1.5em;
+  max-width: 200px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.example-card {
+  max-width: 400px;
+  max-height: 230px;
+  margin-bottom: 8px;
+}
+
+.image {
+  margin: 0;
+  height: 100%;
+  cursor: pointer;
+}
+
+.soldimg {
+  opacity: 55%;
+}
+
+.card-img-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 2px 25px 2px 20px;
+  background-color: #0442BF;
+  color: white;
+  align-content: center;
+  justify-content: center;
+  font-family: "Quicksand";
+  font-weight: 700;
+  font-size: 15px;
+  border-radius: 10px 100px / 120px;
+  z-index: 1;
+
+}
+
+.heart {
+  color: #e53939;
+  padding-top: 3%;
+  margin-left: -6px;
+}
+
+.addtocart {
+  margin-top: -2px;
+  padding-right: 10px;
+  color: rgb(35, 35, 35);
+}
+
+.sold {
+  cursor: not-allowed;
+  font-size: 15.5px;
+  font-weight: 500;
+  color: #4e4d4d;
+  margin-bottom: -5px;
+  width: fit-content;
+}
+
+.best-seller-banner {
+  background-color: darkorange;
+  position: absolute;
+  bottom: 8px;
+  text-align: center;
+  width: 145px;
+  color: whitesmoke;
+  border-radius: 10px;
+  font-family: Quicksand;
+  left: 16px;
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-top: 2px;
+  cursor: pointer;
+  z-index: 1;
+  font-weight: 700;
+  font-size: 15px;
+}
+

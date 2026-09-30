@@ -1,0 +1,130 @@
+.orderConfContainer {
+    width: 80vw;
+    height: 100vh;
+    margin-top: 6%;
+}
+
+.headerContainer {
+    border-bottom: 1px solid rgb(186, 186, 186);
+}
+
+.headerTitle {
+    font-size: 30px;
+    font-weight: 400;
+    padding: 10px;
+}
+
+.cardContainer {
+    height: 80vh;
+}
+
+.sectionTitle {
+    font-size: large;
+    font-weight: 500;
+}
+
+.flexContainer {
+    height: 65vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-content: center;
+    column-gap: 5px;
+}
+
+.divCol {
+    width: 33%;
+    display: inline;
+    padding: 10px;
+}
+
+.products {
+    height: 80%;
+    overflow: auto;
+}
+
+.productCols {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.productRow {
+    display: block;
+}
+
+.orderTotal {
+    margin-top: 20px;
+}
+
+.addressCols {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-bottom: 30px;
+}
+
+.billing {
+    border-bottom: 1px solid rgb(186, 186, 186);
+}
+
+.shipping {
+    padding-top: 20px;
+}
+
+.creditCardInfo {
+    padding-top: 20px;
+}
+
+.piCols {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-bottom: 30px;
+}
+
+.personalInfo {
+    border-bottom: 2px solid rgb(186, 186, 186);
+}
+
+.btnContainer {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.confirmBtn {
+    width: 70%;
+    background-color: rgb(22, 22, 22);
+    color: white;
+    padding: 15px;
+    border-radius: 15px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 2px 1px 7px #6b6a6a;
+}
+
+.confirmBtn:hover:enabled {
+    background-color: green;
+}
+
+.confirmBtn:disabled, .cancelBtn:disabled {
+    background-color: #878686;
+    color: white;
+}
+
+.cancelBtn {
+    width: 20%;
+    background-color: rgba(71, 71, 71, 0.112);
+    color: #252525;
+    padding: 15px;
+    border-radius: 15px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 2px 1px 7px #6b6a6a;
+}
+
+.cancelBtn:hover:enabled {
+    background-color: darkred;
+    color: white;
+}

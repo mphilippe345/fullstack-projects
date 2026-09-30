@@ -1,0 +1,58 @@
+<div class="login">
+<div class="nav-container">
+  <nav class="navbar navbar-expand-md navbar-light bg-light">
+    <div class="container">
+          <div class="nav-item" *ngIf="auth.isAuthenticated$ | async">
+            <button mat-raised-button color="warn"
+              (click)="logout()"
+            >
+              Log out
+            </button>
+          </div>
+          <!-- Login button: show if NOT authenticated -->
+          <div
+            class="nav-item"
+            *ngIf="(auth.isAuthenticated$ | async) === false"
+          >
+            <h2>You have not logged in, please log in.</h2>
+            <button mat-raised-button color="primary" 
+              (click)="loginWithRedirect()"
+            >
+              Log in
+            </button>
+          </div>
+          <!-- / Login button -->
+        <!-- Responsive profile dropdown: show if authenticated -->
+          <div 
+            class="nav-item"
+            class="navbar-nav d-md-none justify-content-between"
+            *ngIf="auth.user$ | async as user"
+            style="min-height: 170px"
+            style="padding-top: 10px">
+            <span class="user-info">
+              <!-- Profile image should be set to the profile picture from the id token -->
+              <img
+                alt="Profile picture"
+                class="nav-user-profile d-inline-block rounded-circle mr-3"
+                style="width: 150px;"
+                [src]="user.picture"
+                referrerpolicy="no-referrer"
+              />
+              <!-- Show the user's full name from the id token here -->
+              <mat-list>
+                <mat-list-item style="font-weight:600">User Name: {{ user.nickname }}</mat-list-item>
+                <mat-list-item style="font-weight:600">Last Name: {{ user.family_name }}</mat-list-item>
+                <mat-list-item style="font-weight:600">First Name: {{ user.given_name }}</mat-list-item>
+                <mat-list-item style="font-weight:600">Email: {{ user.email }}</mat-list-item>
+                <mat-list-item style="font-weight:600">Role: {{ user['https://example.com/roles'] }}</mat-list-item>
+              </mat-list>
+              <div class='console' *ngIf="(user['https://example.com/roles']) == 'admin' ">
+                Admin console.
+              </div>
+              
+            </span>
+          </div>
+      </div>
+  </nav>
+</div>
+</div>

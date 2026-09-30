@@ -1,0 +1,25 @@
+<div class="header" [style.margin-top]="stockStatus ? '2rem': '6rem'">
+  <p>Related Products
+  </p>
+</div>
+<div class="container">
+  <p *ngIf="products.length === 0" class="no-product-msg">No related products are currently available</p>
+  <section class="products">
+    <div class="wrapper">
+      <div class="main" *ngIf="products.length >= 1">
+        <div class="item" *ngFor="let product of products"
+             [style.transform]="'translateX(' + currentIndex * -itemWidth + '%)'">
+          <app-comic-card [product]="product" [topProducts]="topProducts"></app-comic-card>
+        </div>
+      </div>
+      <div class="button-area">
+        <button mat-mini-fab type="button" class="prev" (click)="prevSlide()" aria-label="previous" [disabled]="currentIndex == 0">
+          <mat-icon>keyboard_arrow_left</mat-icon>
+        </button>
+        <button mat-mini-fab type="button" class="next" (click)="nextSlide()" aria-label="forward" [disabled]="currentIndex == 1 || products.length <= 3">
+          <mat-icon>keyboard_arrow_right</mat-icon>
+        </button>
+      </div>
+    </div>
+  </section>
+</div>

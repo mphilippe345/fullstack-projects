@@ -1,0 +1,116 @@
+<div class="container">
+  <img
+    class="gImg"
+    src="assets\bubble.jpg"
+    routerLink="/home"
+    alt="genre comic backdrop"
+  />
+  <p class="centered">Discover Genres</p>
+  <nav class="whitebox">
+    <div class="genre-container">
+      <a
+        class="hover-underline-animation"
+        role="button"
+        (click)="newGenre('action')"
+        ><img
+          class="action"
+          src="assets\action.png"
+          role="button"
+          (click)="newGenre('action')"
+          alt="action image"
+        />
+        <p>ACTION</p></a
+      >
+    </div>
+    <div class="genre-container">
+      <a
+        class="hover-underline-animation"
+        (click)="newGenre('cartoon')"
+        role="button"
+        ><img
+          class="cartoon"
+          (click)="newGenre('cartoon')"
+          src="assets\cartoonn.png"
+          role="button"
+          alt="cartoon image"
+        />
+        <p>CARTOON</p></a
+      >
+    </div>
+    <div class="genre-container">
+      <a
+        class="hover-underline-animation"
+        (click)="newGenre('superhero')"
+        role="button"
+        ><img
+          class="superhero"
+          src="assets\hero.png"
+          (click)="newGenre('superhero')"
+          role="button"
+          alt="superhero image"
+        />
+        <p>SUPERHERO</p></a
+      >
+    </div>
+    <div class="genre-container">
+      <a
+        class="hover-underline-animation"
+        (click)="newGenre('sci-fi')"
+        role="roll"
+        ><img
+          class="scifi"
+          src="assets\alienn.png"
+          (click)="newGenre('sci-fi')"
+          role="roll"
+          alt="television with alien image"
+        />
+        <p>SCI-FI</p></a
+      >
+    </div>
+    <div class="genre-container">
+      <a
+        class="hover-underline-animation"
+        (click)="newGenre('fantasy')"
+        role="roll"
+        ><img
+          class="fantasy"
+          src="assets\fantasyy.png"
+          (click)="newGenre('fantasy')"
+          role="roll"
+          alt="crystal ball image"
+        />
+        <p>FANTASY</p></a
+      >
+    </div>
+    <div class="genre-container">
+      <a
+        class="hover-underline-animation"
+        (click)="newGenre('drama')"
+        role="roll"
+        ><img
+          class="drama"
+          src="assets\dramaa.png"
+          (click)="newGenre('drama')"
+          role="roll"
+          alt="drama image"
+        />
+        <p>DRAMA</p></a
+      >
+    </div>
+    <div class="genre-container">
+      <a 
+        class="hover-underline-animation" 
+        (click)="newGenre('all')"
+        role="button"
+        ><img
+          class="all"
+          src="assets\all.png"
+          (click)="newGenre('all')"
+          role="button"
+          alt="comic book page image"
+        />
+        <p>ALL</p></a
+      >
+    </div>
+  </nav>
+</div>
