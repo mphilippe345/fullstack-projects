@@ -1,0 +1,276 @@
+<!DOCTYPE html >
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 5%;
+            margin-top: 5%;
+        }
+
+        .thank-you {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        .itemized-list {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        .product-row, .header-cells {
+            border-bottom: 1px solid lightgray;
+            border-top: 1px solid lightgray;
+            height: 40px;
+        }
+
+        .product-head, .quantity-head {
+            background-color: #e8e8e8;
+            text-align: left;
+        }
+
+        .total {
+            text-align: right;
+            font-weight: bold;
+        }
+
+        .body {
+            background-color: lightgray;
+            min-height: 700px;
+            color: black;
+        }
+
+        .title {
+            display: flex;
+            justify-content: space-between;
+            font-weight: bolder;
+            text-decoration: underline;
+            margin-left: 4px;
+        }
+
+        .quantity-price {
+            font-weight: bolder;
+        }
+
+        .shipping, .billing {
+            width: 100%;
+            border-bottom: 1px solid lightgray;
+        }
+
+        .total {
+            margin-left: 73%;
+        }
+
+        .total-group {
+            display: flex;
+            justify-content: space-between;
+            height: 28px;
+        }
+
+        .total-price {
+            margin-left: auto;
+            text-align: right;
+        }
+
+        .number-date {
+            color: gray;
+            font-weight: bold;
+            font-size: 13px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .date {
+            margin-left: auto;
+        }
+
+        .product-head {
+            padding-left: 6px;
+        }
+
+        .shipping-billing-label {
+            vertical-align: top;
+            text-align: left;
+            padding-top: 13px;
+            font-weight: bolder;
+        }
+
+        .shipping-billing-row {
+            height: 10px;
+            text-align: left;
+            font-weight: bold;
+        }
+
+        .section-label {
+            text-align: left;
+        }
+
+        .divider {
+            width: 100%;
+            margin-bottom: auto;
+            margin-top: 4%;
+            border-bottom: 5px solid black;
+        }
+
+        .logo-container {
+            background-color: black;
+            width: 640px;
+            text-align: center;
+            border-bottom-left-radius: 5px;
+            border-bottom-right-radius: 5px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .logo-container img {
+            margin-left: 4%;
+            padding-top: 3.7%;
+            padding-bottom: 3%;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .logo-container {
+                background-color: white;
+            }
+        }
+
+        .footer-message {
+            margin-top: 5%;
+        }
+
+        .total-price {
+            text-align: right;
+            margin-right: 10%;
+        }
+
+        .price-cell {
+            text-align: right;
+            padding-right: 16px;
+        }
+
+        .price-head {
+            text-align: right;
+            padding-right: 16px;
+            background-color: #e8e8e8;
+        }
+
+        .shipping-info, .billing-info {
+            text-align: left;
+        }
+
+    </style>
+    <title>Email Receipt</title>
+</head>
+<body class="body">
+<div class="logo-container">
+    <img src="https://i.ibb.co/0fGrxLS/comic-Logo.png" alt="comic corners logo" height="70" width="150">
+</div>
+<div class="container">
+    <div class="header">
+        <h1 class="thank-you">Thank You For Your Purchase!</h1>
+    </div>
+
+    <h1 class="section-label">Your Order</h1>
+
+    <div class="number-date">
+        <p class="order-number">ORDERNUM123</p>
+        <p th:text="'Date: ' + ${purchase.getProducts().stream().findFirst().orElse(null).getDateTime()}" class="date"></p>
+    </div>
+    <table class="itemized-list">
+        <thead>
+        <tr class="header-cells">
+            <th class="product-head">Product</th>
+            <th class="quantity-head">Quantity</th>
+            <th class="price-head">Price</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="lineItem : ${purchase.getProducts()}" class="product-row">
+            <td class="title"><p th:text="${lineItem.getProduct().getTitle()}"></p></td>
+            <td class="quantity-price" th:text="${lineItem.getQuantity()}"></td>
+            <td class="quantity-price price-cell"
+                th:text="'$' + ${lineItem.getProduct().getPrice() * lineItem.getQuantity()}"></td>
+        </tr>
+        </tbody>
+    </table>
+    <div class="total">
+        <div class="total-group">
+            <p>Subtotal: </p>
+            <p th:text="'$' + ${subtotal}" class="total-price"></p>
+        </div>
+        <div class="total-group">
+            <p>Shipping: </p>
+            <p class="total-price">$0.00</p>
+        </div>
+        <div class="total-group">
+            <p>Taxes: </p>
+            <p class="total-price">$0.00</p>
+        </div>
+        <div class="total-group">
+            <p>Total: </p>
+            <p th:text="'$' + ${purchase.getOrderTotal()}" class="total-price"></p>
+        </div>
+    </div>
+    <div class="divider"></div>
+    <h1 class="section-label">Your Details</h1>
+
+    <table class="shipping">
+        <tbody>
+        <tr>
+            <td class="shipping-billing-label">Shipped to:</td>
+            <td class="shipping-info">
+                <div>
+                    <p th:text="${purchase.getPersonalInfo().getFirstName()} + ' ' + ${purchase.getPersonalInfo().getLastName()}"
+                       class="shipping-billing-row"></p>
+                    <p th:text="${purchase.getShippingAddress().getStreetAddress1()}" class="shipping-billing-row"></p>
+                    <th:block th:if="${purchase.getShippingAddress().getStreetAddress2() != null && purchase.getShippingAddress().getStreetAddress2().length() > 0}">
+                        <p th:text="${purchase.getShippingAddress().getStreetAddress2()}"
+                           class="shipping-billing-row"
+                           th:if="${purchase.getShippingAddress().getStreetAddress2() != null && purchase.getShippingAddress().getStreetAddress2().length() > 0}"></p>
+                    </th:block>
+                    <p th:text="${purchase.getShippingAddress().getCity()} + ', ' + ${purchase.getShippingAddress().getState()} + ' ' + ${purchase.getShippingAddress().getZipCode()}"
+                       class="shipping-billing-row"></p>
+                </div>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <table class="billing">
+        <tbody>
+        <tr>
+            <td class="shipping-billing-label">Billed to:</td>
+            <td class="billing-info">
+                <div>
+                    <p th:text="${purchase.getCreditCard().getCardType()}" class="shipping-billing-row"></p>
+                    <p th:text="'Ending in: *' + ${#strings.substring(purchase.getCreditCard().getCardNumber(), purchase.getCreditCard().getCardNumber().length() - 4)}"
+                       class="shipping-billing-row"></p>
+                    <p th:text="'Expiration: ' + ${purchase.getCreditCard().getExpirationDate()}"
+                       class="shipping-billing-row"></p>
+                </div>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <p class="footer-message">Notice something wrong with your order? Contact our support team, and we'll be happy to help.</p>
+</div>
+</body>
+</html>

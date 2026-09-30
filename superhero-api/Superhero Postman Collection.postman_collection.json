@@ -1,0 +1,1073 @@
+{
+	"info": {
+		"_postman_id": "59a27444-2591-4e9b-a796-1b200149dcad",
+		"name": "Superhero Postman Collection",
+		"description": "This is the complete Superhero Postman collection. In the collection there are the necessary endpoints for the products, purchases, promo codes, reviews and users. One thing to note is that reviews and user endpoints are still being worked on as of 8/28/2023, should work later in the future when we have all of our user login up and running.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "20512523"
+	},
+	"item": [
+		{
+			"name": "Products",
+			"item": [
+				{
+					"name": "Get All Products (200)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/products",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Product By ID (200)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/products/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"products",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Post New Product (201)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"author\": \"Stan Lee\",\r\n    \"title\": \"The Incredible Hulk\",\r\n    \"issue\": 1,\r\n    \"volume\": \"Volume 1\",\r\n    \"publisher\": \"Marvel Comics\",\r\n    \"releaseDate\": \"1962-05-09\",\r\n    \"price\": 100.99,\r\n    \"description\": \"First hulk comic ever\",\r\n    \"genre\": \"superhero\",\r\n    \"imageUrl\": \"https://upload.wikimedia.org/wikipedia/en/thumb/0/0f/Hulk1.jpg/220px-Hulk1.jpg\",\r\n    \"stockStatus\": false,\r\n    \"sku\": \"SKU-129\",\r\n    \"active\": true,\r\n    \"bestSeller\": false,\r\n    \"newrelease\": false\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/products",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get New Releases (200)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/products/newrelease",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"products",
+								"newrelease"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get By Genre (200)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/products/genre/superhero",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"products",
+								"genre",
+								"superhero"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Best Sellers (200)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/products/best-sellers",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"products",
+								"best-sellers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Filter Products (200)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/products/filter?size=12&page=0&sort=&publishers=Marvel Comics, DC Comics&minPrice=5.99&maxPrice=100.99",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"products",
+								"filter"
+							],
+							"query": [
+								{
+									"key": "size",
+									"value": "12"
+								},
+								{
+									"key": "page",
+									"value": "0"
+								},
+								{
+									"key": "sort",
+									"value": ""
+								},
+								{
+									"key": "publishers",
+									"value": "Marvel Comics, DC Comics"
+								},
+								{
+									"key": "minPrice",
+									"value": "5.99"
+								},
+								{
+									"key": "maxPrice",
+									"value": "100.99"
+								}
+							]
+						},
+						"description": "This is a sample filter request and does not include all of the fileds that we can filter by. All of the fields to filter by will be below and they follow the format as the fields above.\n\n- releaseDate(date string \"yyyy-mm-dd\" format)\n    \n- publishers(list or array or strings)\n    \n- minPrice(decimal)\n    \n- maxPrice(decimal)\n    \n- newrelease(boolean)\n    \n- bestSeller(boolean)\n    \n- genres(list or array of strings)\n    \n- active(boolean)\n    \n- page(int)\\*\n    \n- size(int)\\*\n    \n- sort(string)\\*\n    \n- search(string)\n    \n\n\\* = required fields. Page, size and sort are required because request returns Page object and those three fields are required for the page object to return exactly what you want."
+					},
+					"response": []
+				},
+				{
+					"name": "Get Product By ID (404)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/products/0",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"products",
+								"0"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Related Products By ID (200)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/products/related/10",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"products",
+								"related",
+								"10"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "All of the 200 endpoints for the products."
+		},
+		{
+			"name": "Purchases",
+			"item": [
+				{
+					"name": "Save Purchase (201)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"personalInfo\": {\r\n        \"firstName\": \"David\",\r\n        \"lastName\": \"Bowie\",\r\n        \"email\": \"groundControl2@major.tom\",\r\n        \"phoneNumber\": \"4239098485\"\r\n    },\r\n    \"shippingAddress\": {\r\n        \"streetAddress1\": \"123 Whatever Ln\",\r\n        \"city\": \"Springfield\",\r\n        \"state\": \"MA\",\r\n        \"zipCode\": \"12345\"\r\n    },\r\n    \"billingAddress\": {\r\n        \"streetAddress1\": \"123 Whatever Ln\",\r\n        \"city\": \"Springfield\",\r\n        \"state\": \"MA\",\r\n        \"zipCode\": \"12345\"\r\n    },\r\n    \"creditCard\": {\r\n        \"cardName\": \"David Bowie\",\r\n        \"cardType\": \"Visa\",\r\n        \"cardNumber\": \"4551236578985465\",\r\n        \"expirationDate\": \"12/25\",\r\n        \"securityCode\": \"465\"\r\n    },\r\n    \"products\": [\r\n        {\r\n            \"product\": {\r\n                \"id\": 2\r\n            },\r\n            \"quantity\": 4\r\n   \"condition\": null\n      },{\r\n            \"product\": {\r\n                \"id\": 3\r\n            },\r\n            \"quantity\": 6\r\n    \"condition\": 4\n    },{\r\n            \"product\": {\r\n                \"id\": 4\r\n            },\r\n            \"quantity\": 2\r\n        }\r\n    ],\r\n    \"orderTotal\": 16\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/purchases",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"purchases"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find All Purchases (200)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/purchases",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"purchases"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find by Email (200)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/purchases/jthompson@catalyte.io",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"purchases",
+								"jthompson@catalyte.io"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find by invalid Email (404)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/purchases/jthompon@catalyte.io",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"purchases",
+								"jthompon@catalyte.io"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Promo Codes",
+			"item": [
+				{
+					"name": "promos 201",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"new promo\",\r\n    \"description\": \"Winter promotion\",\r\n    \"rate\": \"25\",\r\n    \"active \": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/promos",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"promos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "promo 400",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"new promo\",\r\n    \"description\": \"Winter promotion\",\r\n    \"active \": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/promos",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"promos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "promo 200",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/promos",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"promos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "assign promo 201",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "localhost:8080/api/promos/1/product/2",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"promos",
+								"1",
+								"product",
+								"2"
+							]
+						},
+						"description": "This enpoint assigns promos to products. Promo is the first number, and product ID is the second.\n\n_psuedo code: url:port/api/promos//product/_"
+					},
+					"response": []
+				},
+				{
+					"name": "assign promo 404",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/promos/1/product/0",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"promos",
+								"1",
+								"product",
+								"0"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "assign promo 409",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/promos/1/product/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"promos",
+								"1",
+								"product",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Promos By Product ID (200)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/promos/product/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"promos",
+								"product",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Reviews",
+			"item": [
+				{
+					"name": "Get Reviews By Product ID (200)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/reviews/product/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"reviews",
+								"product",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Reviews By Product ID (404)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/reviews/product/0",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"reviews",
+								"product",
+								"0"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Average Rating (200)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/reviews/1/average",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"reviews",
+								"1",
+								"average"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Newest Reviews By Product ID (200)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{localURL}}/api/reviews/30/newest",
+							"host": [
+								"{{localURL}}"
+							],
+							"path": [
+								"api",
+								"reviews",
+								"30",
+								"newest"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Oldest Reviews By roduct ID (200)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{localURL}}/api/reviews/30/oldest",
+							"host": [
+								"{{localURL}}"
+							],
+							"path": [
+								"api",
+								"reviews",
+								"30",
+								"oldest"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Reviews By Invalid Sort (400)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{localURL}}/api/reviews/30/old",
+							"host": [
+								"{{localURL}}"
+							],
+							"path": [
+								"api",
+								"reviews",
+								"30",
+								"old"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Review (201)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userEmail\": \"email@email.com\",\r\n    \"productId\":  1,\r\n    \"rating\": 1,\r\n    \"reviewDate\": \"2023-08-14\",\r\n    \"title\": \"Never Enough Xenomorphs!\",\r\n    \"comment\": \"I grew up on Alien content so you can imagine how overjoyed I was to see Alien comics. Now I can experience two of my favorite things growing up: murderous aliens and comic books. I am sad that Ellen Ripley has nothing to do with this comic but the story is still pretty great!\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/reviews",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"reviews"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create With No Product (400)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userEmail\": \"email@email.com\",\r\n    \"rating\": 1,\r\n    \"reviewDate\": \"2023-08-14\",\r\n    \"title\": \"Never Enough Xenomorphs!\",\r\n    \"comment\": \"I grew up on Alien content so you can imagine how overjoyed I was to see Alien comics. Now I can experience two of my favorite things growing up: murderous aliens and comic books. I am sad that Ellen Ripley has nothing to do with this comic but the story is still pretty great!\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/reviews",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"reviews"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create With No User (400)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"productId\":  1,\r\n    \"rating\": 1,\r\n    \"reviewDate\": \"2023-08-14\",\r\n    \"title\": \"Never Enough Xenomorphs!\",\r\n    \"comment\": \"I grew up on Alien content so you can imagine how overjoyed I was to see Alien comics. Now I can experience two of my favorite things growing up: murderous aliens and comic books. I am sad that Ellen Ripley has nothing to do with this comic but the story is still pretty great!\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/reviews",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"reviews"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "Get User By Email (200)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create New User (201)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\": \"Test\",\r\n    \"lastName\": \"Test\",\r\n    \"email\": \"email3@email.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/users",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"users"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Gift Cards",
+			"item": [
+				{
+					"name": "Post Gift Card (201)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/gift-cards/300",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"gift-cards",
+								"300"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get By Gift Card Code (200)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/gift-cards/code/BJCT-SA5B-SMA9",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"gift-cards",
+								"code",
+								"BJCT-SA5B-SMA9"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Cart",
+			"item": [
+				{
+					"name": "Get By Email 200",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/cart/email3@email.com",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"cart",
+								"email3@email.com"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Cart Total 200",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/cart/email3@email.com/total",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"cart",
+								"email3@email.com",
+								"total"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Item to cart 201",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/cart/email3@email.com/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"cart",
+								"email3@email.com",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Item to cart 404",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/cart/email3@email.com/0",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"cart",
+								"email3@email.com",
+								"0"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remove item from cart 204",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/cart/email3@email.com/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"cart",
+								"email3@email.com",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remove item from cart 400",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/cart/email3@email.com/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"cart",
+								"email3@email.com",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Empty Cart 204",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/cart/email3@email.com",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"cart",
+								"email3@email.com"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Empty Cart 400",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/cart/email3@email.com",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"cart",
+								"email3@email.com"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Sitewide Sales",
+			"item": [
+				{
+					"name": "Get All Sitewide Sales (200)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/sitewide-sales",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"sitewide-sales"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Sitewide Sale",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"octoberfest23\",\r\n    \"type\": \"percentage\",\r\n    \"rate\": 0.15,\r\n    \"startDate\": \"2023-10-16T00:00:00\",\r\n    \"endDate\": \"2023-10-17T10:18:25\",\r\n    \"createdDate\": \"2023-10-17T10:18:25\",\r\n    \"isActive\": \"false\",\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+				{
+					"name": "Delete Sitewide Sale By Id (200)",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/sitewide-sales/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"sitewide-sales",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Sitewide Sale by Id (200)",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"octoberfest23\",\r\n    \"type\": \"percentage\",\r\n    \"rate\": 0.15,\r\n    \"startDate\": \"2023-10-16T00:00:00\",\r\n    \"endDate\": \"2023-10-17T10:18:25\",\r\n    \"createdDate\": \"2023-10-17T10:18:25\",\r\n    \"isActive\": \"false\",\r\n}",
+							"url": {
+								"raw": "localhost:8080/api/sitewide-sales/1",
+								"host": [
+									"localhost"
+								],
+								"port": "8080",
+								"path": [
+									"api",
+									"sitewide-sales",
+									"1"
+								]
+							}
+						},
+						"response": []
+					},
+				{
+					"name": "Assign Sitewide Sale to Product (200)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/sitewide-sales/2/product/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"sitewide-sales",
+								"1"
+								"product",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+}
