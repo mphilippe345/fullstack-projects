@@ -9,8 +9,8 @@
         public static string CUSTOMER => "Customer";
 
         // Google Client Information
-        public static string GOOGLE_CLIENT_ID => "472383439099-6dbeg14ue7q7iok8ct510ltqd9slf344.apps.googleusercontent.com";
-        public static string GOOGLE_CLIENT_SECRET => "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";
+        public static string GOOGLE_CLIENT_ID => "placeholder";
+        public static string GOOGLE_CLIENT_SECRET => "placeholder";
 
         // Shipping constants
         public static decimal LowerFortyEightUnderFiftyShipping = 5.00m;
