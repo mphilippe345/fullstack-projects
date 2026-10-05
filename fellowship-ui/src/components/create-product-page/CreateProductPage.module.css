@@ -1,0 +1,47 @@
+input[type=checkbox] {
+  accent-color: #f8a1e5;
+  transform: scale(1.3);
+}
+
+.checkbox {
+  color: #2f4858;
+  font-size: large;
+  font-weight: 700;
+}
+
+.createNewProductButton {
+  background: #f8a1e5;
+  border-radius: 20px;
+  color: #2f4858;
+  cursor: pointer;
+  font-family: 'Varela Round', sans-serif;
+  font-size: large;
+  font-weight: 700;
+  height: 3.5em;
+  margin-left: 10vw;
+  width: 19vw;
+}
+
+.createProductContainer {
+  background: #fff;
+  border-radius: 5px;
+  box-shadow: .2em .2em .2em rgba(0,0,0,0.23);
+  margin-bottom: 5vh;
+  margin-top: 5vh;
+  margin-left: 15vw;
+  margin-right: 15vw;
+  padding-block: 5%;
+  padding-left: 15%;
+  padding-right: 15%;
+  width: 40vw;
+}
+
+.createProductTitle {
+  color: #2f4858;
+  font-family:  'Varela Round', sans-serif;
+  font-size: xx-large;
+  font-weight: 900;
+  text-align: center;
+  text-transform: uppercase;
+  margin-top: -.5vh;
+}

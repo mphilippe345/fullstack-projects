@@ -1,0 +1,221 @@
+.ProfilePageContainer{
+    display: block;
+    background-color: white;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: -5px;
+    background: #fff;
+    border-radius: 2px;
+    box-shadow: .2em .2em .2em rgba(0,0,0,0.23);
+    text-align:center;
+    width: 710px;
+    height: 710px;
+  }
+
+  .title{
+    padding-top: 25px;
+    justify-self: center;
+    text-transform: uppercase;
+    font-size: xx-large;
+    color: #666666;
+    margin-left: 5em;
+    
+  }
+
+  .firstName{
+    justify-self: center;
+    color: #666666;
+  }
+
+  .firstNameText{
+    padding-top: 5px;
+    padding-bottom: 25px;
+  }
+
+  .lastName{
+    justify-self: center;
+    color: #666666;
+  }
+
+  .lastNameText{
+    padding-top: 5px;
+    padding-bottom: 25px;
+  }
+
+  .email{
+    justify-self: center;
+    color: #666666;
+  }
+
+  .emailText{
+    padding-top: 5px;
+    padding-bottom: 25px;
+  }
+
+  .street{
+    justify-self: center;
+    color: #666666;
+}
+
+.streetText{
+    padding-top: 5px;
+    padding-bottom: 25px;
+}
+
+.street2{
+    justify-self: center;
+    color: #666666;
+}
+
+.street2Text{
+    padding-top: 5px;
+    padding-bottom: 25px;
+}
+
+.city{
+    justify-self: center;
+    color: #666666;
+}
+
+.cityText{
+    padding-top: 5px;
+    padding-bottom: 25px;
+}
+
+.state{
+    justify-self: center;
+    color: #666666;
+}
+
+.stateText{
+    padding-top: 5px;
+    padding-bottom: 25px;
+}
+
+.zip{
+    justify-self: center;
+    color: #666666;
+}
+
+.zipText{
+    padding-top: 5px;
+    padding-bottom: 25px;
+}
+
+.editPencilIcon{
+  float: right;
+  margin-right: 6em;
+  margin-top: 25px;
+}
+
+.errorText{
+  color:red;
+  font:14;
+}
+
+.showErrors{
+  color: red;
+  margin-left: 2.5em;
+}
+.hideErrors{
+  visibility: hidden;
+}
+
+.profileHolder{
+  align-content: center;
+}
+
+.editFirstNameText{
+  margin-right: 5px;
+}
+.editLastNameText{
+  margin-right: 5px;
+}
+.editEmailText{
+  margin-right: 5px;
+  margin-left: -2.5em;
+}
+.editStreetText{
+  margin-right: 5px;
+  margin-left: -2.5em;
+}
+
+.editStreet2Text{
+  margin-right: 5px;
+  margin-left: -1.8em;
+}
+
+.editCityText{
+  margin-right: 5px;
+  margin-left: -3.4em;
+}
+
+.editStateText{
+  margin-right: 5px;
+  margin-left: -3.0em;
+}
+
+.editZipText{
+  margin-right: 5px;
+  margin-left: -3.6em;
+}
+
+.save{
+  background: #f8a1e5;
+  border-radius: 20px;
+  border-width: thin;
+  color: #25353f;
+  cursor: pointer;
+  font-family: 'Varela Round', sans-serif;
+  font-size:medium;
+  font-weight: 520;
+  justify-self: center;
+  margin: 5px;
+  margin-top: 19px;
+  margin-left: 2.0vw;
+  width: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+} 
+
+.cancel{
+  background: #f8a1e5;
+  border-radius: 20px;
+  border-width: thin;
+  color: #25353f;
+  cursor: pointer;
+  font-family: 'Varela Round', sans-serif;
+  font-size:medium;
+  font-weight: 520;
+  justify-self: center;
+  margin: 10px;
+  margin-top: 19px;
+  margin-left: 1.0vw;
+  width: auto;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.buttons{
+  float: right;
+  margin-right: 3em;
+}
+
+.viewPurchaseHistory {
+  background: #f8a1e5;
+  border-radius: 20px;
+  color: #2f4858;
+  cursor: pointer;
+  font-family: 'Varela Round', sans-serif;
+  font-size: large;
+  font-weight: 600;
+  height: 3em;
+  justify-self: center;
+  margin: 10px;
+  margin-top: 19px;
+  margin-left: 2.5vw;
+  width: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+

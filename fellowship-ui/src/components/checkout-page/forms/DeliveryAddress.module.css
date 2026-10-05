@@ -1,0 +1,10 @@
+.deliveryAddress {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1em
+}
+
+.label {
+  font-weight: 700;
+  color: #666666;
+}

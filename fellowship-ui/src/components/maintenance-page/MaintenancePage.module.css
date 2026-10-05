@@ -1,0 +1,61 @@
+.errMsg {
+    color: red;
+    font-size: 14px;
+    margin: 0px 2px 4px 4px;
+  }
+  
+  .MaintenanceTableHeader {
+    position: sticky;
+    top: 0;
+    background: #f8a1e5 ;
+  }
+  
+  .MaintenanceTable {
+    border: 2px;
+    border-color: black;
+    white-space: nowrap;
+  }
+
+  .buttonContainer button {
+    flex: 1;
+    flex-direction: 'row';
+    margin: 20;
+     margin-top: 5
+  }
+
+  .createNewProductButton {
+    background: #f8a1e5;
+    border-radius: 20px;
+    color: #2f4858;
+    cursor: pointer;
+    font-family: 'Varela Round', sans-serif;
+    font-size: large;
+    font-weight: 600;
+    height: 3em;
+    justify-self: center;
+    margin: 10px;
+    margin-top: 19px;
+    margin-left: 2.5vw;
+    width: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  
+.createPromoButton {
+  background: #f8a1e5;
+    border-radius: 20px;
+    color: #2f4858;
+    cursor: pointer;
+    font-family: 'Varela Round', sans-serif;
+    font-size: large;
+    font-weight: 600;
+    height: 3em;
+    justify-self: center;
+    margin: 10px;
+    margin-top: 19px;
+    margin-left: 2.5vw;
+    width: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+

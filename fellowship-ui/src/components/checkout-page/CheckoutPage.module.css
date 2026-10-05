@@ -1,0 +1,68 @@
+.checkoutContainer {
+  display:grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-areas:
+    "order    delivery    payment"
+    "order    delivery    summary"
+    "order    delivery    payNow";
+  gap: 1em 2em;
+  padding: 0 2em;
+  margin: 2em 0;
+}
+
+.delivery {
+  grid-area: delivery;
+}
+
+.order {
+  grid-area: order;
+}
+
+.payment {
+  grid-area: payment;
+}
+
+.payNow {
+  grid-area: payNow;
+  display:grid;
+}
+
+.payButton {
+  background: #f8a1e5;
+  border-radius: 20px;
+  color:  #2F4858;
+  cursor: pointer;
+  font-family: 'Varela Round', sans-serif;
+  font-weight: 700;
+  font-size: large;
+  height: 3em; 
+  justify-self: center;
+  width: 75%;
+}
+
+.step {
+  background: #fff;
+  border-radius: 2px;
+  box-shadow: .2em .2em .2em rgba(0,0,0,0.23);
+  padding: 1em;
+}
+
+.summary {
+  grid-area: summary;
+}
+
+.title {
+  text-transform: uppercase;
+  color: #666666;
+  margin: 0 0 1em 0;
+}
+
+.useSameAddress {
+  display: inline-block;
+  margin: 1em 1em 0 0;
+}
+
+.sameAddressText {
+  color: #666666;
+  font-weight: 700;
+}

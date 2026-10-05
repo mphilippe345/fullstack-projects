@@ -1,0 +1,18 @@
+.Toastify__toast--success{
+    text-align: center;
+    background: green !important;
+    color : white !important;
+}
+
+.Toastify__toast--error{
+    text-align: center;
+    background: red !important;
+    color : white !important;
+}
+
+.Toastify__toast--info{
+    text-align: center;
+    background: blue !important;
+    color : white !important;
+}
+

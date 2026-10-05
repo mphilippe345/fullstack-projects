@@ -1,0 +1,67 @@
+#Carticon {
+  color: rgb(251, 204, 231);
+  float: right;
+  height: 30px;
+  right: 35px;
+  top: 23px;
+  width: 30px;
+  padding: 20
+}
+
+#Headerlogo {
+  border-radius: 3px;
+  color: #f6e4f2;
+  float: left;
+  height: 50px;
+  left: 13px;
+  text-align: center;
+  top: 13px;
+}
+
+.Header {
+  border-radius: 2px;
+  background-color: #144012;
+  height: 72px;
+  margin: 0px;
+  padding: 0px;
+  position: sticky;
+  top: 0;
+  z-index: 3;
+}
+
+.Loginbutton {
+  left: 89%;
+  margin-top: 15px;
+  position: absolute;
+  transform: translateX(-50%);
+  width: 100px;
+}
+
+span.Buttontext {
+  color: white;
+  float: left;
+  font-weight: bold;
+  left: 69%;
+  margin-top: 27px;
+  position: relative;
+  padding-right: 7px;
+  text-align: center;
+}
+
+.Logoutbutton {
+  left: 89%;
+  margin-top: 15px;
+  position: absolute;
+  transform: translateX(-50%);
+  width: 100px;
+}
+
+#Accountcircle{
+  color: rgb(251, 204, 231);
+  position: relative;
+  left: 69%;
+  height: 35px;
+  width: 50px;
+  margin-top: 19px;
+  
+}

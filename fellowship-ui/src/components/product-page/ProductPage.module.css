@@ -1,0 +1,23 @@
+.app {
+  display: grid;
+  grid-gap: 15px;
+  grid-template-columns: repeat(5, auto);
+  justify-content: space-evenly;
+  margin: 20px;
+}
+
+.errMsg {
+  color: red;
+  font-size: 14px;
+  margin: 0px 2px 4px 4px;
+}
+
+.box{
+  width: 400px;
+  background-color: black;
+}
+
+.noProducts {
+  font-size: 30px;
+  text-align: center;
+}

@@ -1,0 +1,60 @@
+  .createPromoButton {
+    background: #f8a1e5;
+    border-radius: 20px;
+    color: #2f4858;
+    cursor: pointer;
+    font-family: 'Varela Round', sans-serif;
+    font-size: large;
+    font-weight: 700;
+    height: 3em;
+    margin-left: 13vw;
+    width: 15vw;
+  }
+  
+  .createPromoContainer {
+    background: #fff;
+    border-radius: 5px;
+    box-shadow: .2em .2em .2em rgba(0,0,0,0.23);
+    margin-bottom: 5vh;
+    margin-top: 5vh;
+    margin-left: 25vw;
+    margin-right: 25vw;
+    padding-block: 5%;
+    padding-left: 5%;
+    padding-right: 5%;
+    width: 40vw;
+  }
+  
+  .createPromoTitle {
+    color: #2f4858;
+    font-family:  'Varela Round', sans-serif;
+    font-size: xx-large;
+    font-weight: 900;
+    text-align: center;
+    text-transform: uppercase;
+    margin-top: -.5vh;
+  }
+
+  .label {
+    font-family: 'Varela Round', sans-serif;
+    font-weight: 700;
+    color: #2f4858;
+    margin-bottom: .5em;
+  }
+
+  .promoNumInput ::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+  
+  .radio{
+    margin-bottom: 1em;
+    margin-top: .5em;
+    padding: .5em;
+  }
+
+  .radioGroup {
+    margin-bottom: 1em;
+  }
+  

@@ -1,0 +1,48 @@
+.displayErrors {
+  font-weight: 700;
+  margin-top: .5em;
+  color: #ff0000
+}
+
+.errorMessage {
+  font-size: smaller;
+}
+
+.hideErrorsCheckout {
+  font-weight: 700;
+  margin-top: .5em;
+  visibility: hidden
+}
+
+.form {
+  margin-bottom: 1em;
+}
+
+.hideErrors {
+  visibility: hidden;
+}
+
+.input {
+  margin: .25em;
+  margin-top: .75em;
+  width: 100%;
+  padding: .5em;
+  border-width: .1em;
+  box-sizing: border-box;
+}
+
+.highlightInputBox {
+  margin-top: .5em;
+  width: 100%;
+  padding: .5em;
+  box-sizing: border-box;
+  border-color: #ff0000;
+  border-width: .35em;
+}
+
+.label {
+  font-family: 'Varela Round', sans-serif;
+  font-weight: 700;
+  color: #2f4858;
+  margin-bottom: .5em;
+}
